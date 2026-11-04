@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "5a526095d5b0a929",
-  "generatedAt": "2026-11-04T06:04:41Z",
+  "libraryHash": "214e7750253e1dee",
+  "generatedAt": "2026-11-04T06:05:25Z",
   "count": 7,
-  "totalSize": 18438,
+  "totalSize": 18431,
   "groups": [
     "未分组",
     "笔趣阁"
@@ -46,8 +46,8 @@
     },
     {
       "id": "Xbiquge345",
-      "name": "笔趣阁345",
-      "title": "笔趣阁345",
+      "name": "NewBiquG",
+      "title": "NewBiquG",
       "desc": "笔趣阁(xbiquge345.com)：搜索走 POST；详情页自带完整目录；正文首行站点水印已净化。",
       "group": "笔趣阁",
       "tags": [
@@ -57,26 +57,9 @@
       "site": "xbiquge345.com",
       "url": "https://www.xbiquge345.com",
       "path": "sources/Xbiquge345.json",
-      "hash": "8e8288daf2a0dcf3",
+      "hash": "7bfac153003272b3",
       "version": "1.0.0",
-      "size": 1936,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": false
-    },
-    {
-      "id": "Vjungle",
-      "name": "4399小说",
-      "title": "4399小说",
-      "desc": "4399小说（vjungle.com）：GBK 站点，搜索走 POST；站点限制两次搜索间隔 30 秒；目录与详情同页。",
-      "group": "未分组",
-      "tags": [],
-      "site": "vjungle.com",
-      "url": "https://www.vjungle.com",
-      "path": "sources/Vjungle.json",
-      "hash": "034c61d360991323",
-      "version": "1.0.1",
-      "size": 3811,
+      "size": 1932,
       "updatedAt": "2026-11-04",
       "minAppVersion": "1.0.0",
       "featured": false
@@ -132,6 +115,23 @@
       "hash": "8bc7f2a367bd8cfe",
       "version": "1.0.0",
       "size": 2112,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
+      "id": "Vjungle",
+      "name": "Vjungle",
+      "title": "Vjungle",
+      "desc": "4399小说（vjungle.com）：GBK 站点，搜索走 POST；站点限制两次搜索间隔 30 秒；目录与详情同页。",
+      "group": "未分组",
+      "tags": [],
+      "site": "vjungle.com",
+      "url": "https://www.vjungle.com",
+      "path": "sources/Vjungle.json",
+      "hash": "61f7a2adbd6bf5c7",
+      "version": "1.0.1",
+      "size": 3808,
       "updatedAt": "2026-11-04",
       "minAppVersion": "1.0.0",
       "featured": false

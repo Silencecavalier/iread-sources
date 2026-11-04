@@ -35,19 +35,20 @@
       "updatedAt": "2026-11-04"
     },
     "Vjungle": {
-      "title": "4399小说",
+      "title": "Vjungle",
       "version": "1.0.1",
       "updatedAt": "2026-11-04"
     },
     "Xbiquge345": {
-      "title": "笔趣阁345",
+      "title": "NewBiquG",
       "desc": "笔趣阁(xbiquge345.com)：搜索走 POST；详情页自带完整目录；正文首行站点水印已净化。",
       "tags": [
         "笔趣阁",
         "搜索可用"
       ],
       "version": "1.0.0",
-      "updatedAt": "2026-11-04"
+      "updatedAt": "2026-11-04",
+      "group": "笔趣阁"
     }
   }
 }
