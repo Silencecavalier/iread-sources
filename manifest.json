@@ -1,16 +1,37 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "efcf7545774d275f",
-  "generatedAt": "2026-11-04T08:50:10Z",
-  "count": 8,
-  "totalSize": 22913,
+  "libraryHash": "e17948771c28de65",
+  "generatedAt": "2026-11-04T09:36:18Z",
+  "count": 9,
+  "totalSize": 26042,
   "groups": [
     "漫画",
     "未分组",
     "笔趣阁"
   ],
   "sources": [
+    {
+      "id": "Dongmanla",
+      "name": "动漫啦",
+      "title": "动漫啦",
+      "desc": "动漫啦（m.dongman.la）：移动版 HTML 站点，搜索/18 个分类/最近更新；章节正文用 all.html 整话页一次拿全 29 张图。",
+      "group": "漫画",
+      "tags": [
+        "漫画",
+        "HTML",
+        "all.html"
+      ],
+      "site": "m.dongman.la",
+      "url": "https://m.dongman.la",
+      "path": "sources/Dongmanla.json",
+      "hash": "b6d2074d53e48418",
+      "version": "1.0.0",
+      "size": 3129,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": true
+    },
     {
       "id": "Jisu1kkk",
       "name": "极速漫画",

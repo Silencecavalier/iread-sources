@@ -61,6 +61,18 @@
       "version": "1.0.0",
       "updatedAt": "2026-11-04",
       "featured": true
+    },
+    "Dongmanla": {
+      "title": "动漫啦",
+      "desc": "动漫啦（m.dongman.la）：移动版 HTML 站点，搜索/18 个分类/最近更新；章节正文用 all.html 整话页一次拿全 29 张图。",
+      "tags": [
+        "漫画",
+        "HTML",
+        "all.html"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-04",
+      "featured": true
     }
   }
 }
