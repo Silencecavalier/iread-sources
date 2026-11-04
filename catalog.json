@@ -35,8 +35,14 @@
       "updatedAt": "2026-11-04"
     },
     "Vjungle": {
-      "title": "Vjungle",
-      "version": "1.0.0",
+      "title": "4399小说",
+      "desc": "4399小说（vjungle.com）：发现/搜索/详情/正文齐全；GBK 编码，搜索走 POST，站点限制两次搜索间隔 30 秒；目录与详情同页。",
+      "tags": [
+        "4399",
+        "GBK",
+        "搜索限流"
+      ],
+      "version": "1.0.1",
       "updatedAt": "2026-11-04"
     }
   }

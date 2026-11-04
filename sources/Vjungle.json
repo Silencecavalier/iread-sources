@@ -1,34 +1,37 @@
 {
-  "bookSourceName": "Vjungle",
+  "bookSourceName": "4399小说",
   "bookSourceUrl": "https://www.vjungle.com",
   "bookSourceType": 0,
   "bookSourceCharset": "gbk",
   "requestCharset": "gbk",
   "enabled": true,
   "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\",\"Accept-Language\":\"zh-CN,zh;q=0.9\"}",
-  "searchUrl": "/modules/article/search.php?searchkey={{key}},{\"charset\":\"gbk\"}",
-  "exploreUrl": "玄幻1::/fenlei/1_1/\n玄幻2::/fenlei/1_2/\n玄幻3::/fenlei/1_3/\n仙侠1::/fenlei/2_1/\n仙侠2::/fenlei/2_2/\n都市1::/fenlei/3_1/\n都市2::/fenlei/3_2/\n都市3::/fenlei/3_3/\n军事1::/fenlei/4_1/\n军事2::/fenlei/4_2/\n网游1::/fenlei/5_1/\n网游2::/fenlei/5_2/\n科幻1::/fenlei/6_1/\n科幻2::/fenlei/6_2/\n恐怖::/fenlei/7_1/\n女生::/fenlei/8_1/\n其他1::/fenlei/9_1/\n其他2::/fenlei/9_2/\n全部1::/fenlei/10_1/\n全部2::/fenlei/10_2/\n点击总榜::/top/allvisit_1.html\n月点击榜::/top/monthvisit_1.html\n推荐总榜::/top/allvote_1.html\n周点击榜::/top/weekvisit_1.html\n收藏总榜::/top/goodnum_1.html\n字数排行::/top/size_1.html\n最近更新::/top/lastupdate_1.html\n最新入库::/top/postdate_1.html",
+  "searchUrl": "/modules/article/search.php,{\"method\":\"POST\",\"body\":\"searchkey={{key}}\",\"charset\":\"gbk\"}",
+  "exploreUrl": "玄幻1::https://www.vjungle.com/fenlei/1_1/\n玄幻2::https://www.vjungle.com/fenlei/1_2/\n玄幻3::https://www.vjungle.com/fenlei/1_3/\n仙侠1::https://www.vjungle.com/fenlei/2_1/\n仙侠2::https://www.vjungle.com/fenlei/2_2/\n都市1::https://www.vjungle.com/fenlei/3_1/\n都市2::https://www.vjungle.com/fenlei/3_2/\n都市3::https://www.vjungle.com/fenlei/3_3/\n军事1::https://www.vjungle.com/fenlei/4_1/\n军事2::https://www.vjungle.com/fenlei/4_2/\n网游1::https://www.vjungle.com/fenlei/5_1/\n网游2::https://www.vjungle.com/fenlei/5_2/\n科幻1::https://www.vjungle.com/fenlei/6_1/\n科幻2::https://www.vjungle.com/fenlei/6_2/\n恐怖::https://www.vjungle.com/fenlei/7_1/\n女生::https://www.vjungle.com/fenlei/8_1/\n其他1::https://www.vjungle.com/fenlei/9_1/\n其他2::https://www.vjungle.com/fenlei/9_2/\n全部1::https://www.vjungle.com/fenlei/10_1/\n全部2::https://www.vjungle.com/fenlei/10_2/\n点击总榜::https://www.vjungle.com/top/allvisit_1.html\n月点击榜::https://www.vjungle.com/top/monthvisit_1.html\n推荐总榜::https://www.vjungle.com/top/allvote_1.html\n周点击榜::https://www.vjungle.com/top/weekvisit_1.html\n收藏总榜::https://www.vjungle.com/top/goodnum_1.html\n字数排行::https://www.vjungle.com/top/size_1.html\n最近更新::https://www.vjungle.com/top/lastupdate_1.html\n最新入库::https://www.vjungle.com/top/postdate_1.html",
   "ruleSearch": {
     "bookList": "div.mySearch ul",
     "name": "a.b@text",
     "author": "li.2@text##作者：##",
     "bookUrl": "a.b@href",
-    "lastChapter": "li.1 a@text"
+    "lastChapter": "@XPath:.//li[2]/a/text()",
+    "coverUrl": "@XPath:./preceding-sibling::div[1]/img/@src"
   },
   "ruleExplore": {
     "bookList": "table tr",
-    "name": "td.0 a@text",
-    "author": "td.2@text",
-    "bookUrl": "td.0 a@href",
-    "lastChapter": "td.1 a@text"
+    "name": "@XPath:./td[1]/a/text()",
+    "author": "@XPath:./td[3]/text()",
+    "bookUrl": "@XPath:./td[1]/a/@href",
+    "lastChapter": "@XPath:./td[2]//a/text()",
+    "kind": "@XPath:./td[5]/text()",
+    "updateTime": "@XPath:./td[4]/text()"
   },
   "ruleBookInfo": {
     "name": "h1.bookTitle@text",
     "author": "p.booktag a.red.0@text",
-    "intro": "#bookIntro@text##[ 　]*简介[:：]|[ 　]*关于[^：]{0,30}[：:]|[^。]{0,20}最新鼎力大作[^。]{0,40}。|下载客户端，查看完整作品简介。|纯文字在线阅读本站域名手机同步阅读请访问|[ 　]*[.．]{2,}",
+    "intro": "@css:#bookIntro@text##简介[:：]关于[^：]{0,60}[:：]|[.．]{3,}.*##",
     "coverUrl": "img.img-thumbnail.0@src",
     "kind": "p.booktag a.red.1@text",
-    "lastChapter": "div.panel-danger dd.0 a@text",
+    "lastChapter": "class.panel-danger@tag.dd.0@tag.a@text",
     "wordCount": "p.booktag span.blue.0@text##字数：##"
   },
   "ruleToc": {
@@ -37,6 +40,7 @@
     "chapterUrl": "@href"
   },
   "ruleContent": {
-    "content": "#htmlContent@text##收藏【[^】]{0,60}】[^，]{0,60}，热门网络小说无弹窗免费阅读！|，?最快更新[^。！]{0,40}！|喜欢[^。，]{0,30}请大家收藏：[^。，]{0,30}更新速度最快。|推荐：[^。，]{0,40}手机阅读。|VIP中文手机版阅读网址[：:]{0,1}[^。，]{0,60}|内容更新后，请重新刷新页面，即可获取最新更新！|[（(]?已经更换域名[:：][^)）]{0,60}[)）]?|[。.]?手机版更新最快网址[：:]{0,1}[^。，]{0,60}|手机用户请访问[^。，]{0,20}|最快更新无错阅读[，,]?请访问[^。，]{0,60}|手机请访问[：:]{0,1}[^。，]{0,60}|</?div[^>]{0,80}>|[ ]##"
-  }
+    "content": "@css:#htmlContent@html##收藏【[^】]{0,60}】[^，]{0,60}，热门网络小说无弹窗免费阅读！|，?最快更新[^。！]{0,40}！|喜欢[^。，]{0,30}请大家收藏：[^。，]{0,30}更新速度最快。|推荐：[^。，]{0,40}手机阅读。|VIP中文手机版阅读网址[：:]{0,1}[^。，]{0,60}|内容更新后，请重新刷新页面，即可获取最新更新！|[（(]?已经更换域名[:：][^)）]{0,60}[)）]?|[。.]?手机版更新最快网址[：:]{0,1}[^。，]{0,60}|手机用户请访问[^。，]{0,20}|最快更新无错阅读[，,]?请访问[^。，]{0,60}|手机请访问[：:]{0,1}[^。，]{0,60}|</?div[^>]{0,80}>|[ ]##"
+  },
+  "bookSourceComment": "4399小说（vjungle.com）：GBK 站点，搜索走 POST；站点限制两次搜索间隔 30 秒；目录与详情同页。"
 }

@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "4a108e27a780c24c",
-  "generatedAt": "2026-11-04T04:21:08Z",
+  "libraryHash": "ac19ddb23c51a389",
+  "generatedAt": "2026-11-04T04:40:20Z",
   "count": 6,
-  "totalSize": 15618,
+  "totalSize": 16502,
   "groups": [
     "未分组"
   ],
@@ -42,6 +42,27 @@
       "updatedAt": "2026-11-04",
       "minAppVersion": "1.0.0",
       "featured": true
+    },
+    {
+      "id": "Vjungle",
+      "name": "4399小说",
+      "title": "4399小说",
+      "desc": "4399小说（vjungle.com）：发现/搜索/详情/正文齐全；GBK 编码，搜索走 POST，站点限制两次搜索间隔 30 秒；目录与详情同页。",
+      "group": "未分组",
+      "tags": [
+        "4399",
+        "GBK",
+        "搜索限流"
+      ],
+      "site": "vjungle.com",
+      "url": "https://www.vjungle.com",
+      "path": "sources/Vjungle.json",
+      "hash": "034c61d360991323",
+      "version": "1.0.1",
+      "size": 3811,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": false
     },
     {
       "id": "biquge-mobile",
@@ -94,23 +115,6 @@
       "hash": "8bc7f2a367bd8cfe",
       "version": "1.0.0",
       "size": 2112,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": false
-    },
-    {
-      "id": "Vjungle",
-      "name": "Vjungle",
-      "title": "Vjungle",
-      "desc": "",
-      "group": "未分组",
-      "tags": [],
-      "site": "vjungle.com",
-      "url": "https://www.vjungle.com",
-      "path": "sources/Vjungle.json",
-      "hash": "2a59afb80efb2e53",
-      "version": "1.0.0",
-      "size": 2927,
       "updatedAt": "2026-11-04",
       "minAppVersion": "1.0.0",
       "featured": false
