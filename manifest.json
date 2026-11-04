@@ -1,15 +1,37 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "214e7750253e1dee",
-  "generatedAt": "2026-11-04T06:07:23Z",
-  "count": 7,
-  "totalSize": 18431,
+  "libraryHash": "efcf7545774d275f",
+  "generatedAt": "2026-11-04T08:50:10Z",
+  "count": 8,
+  "totalSize": 22913,
   "groups": [
+    "漫画",
     "未分组",
     "笔趣阁"
   ],
   "sources": [
+    {
+      "id": "Jisu1kkk",
+      "name": "极速漫画",
+      "title": "极速漫画",
+      "desc": "极速漫画移动版（m.1kkk.com）。图片列表在 eval 打包串里需解包，图床强校验 Referer，缺了就是 404。",
+      "group": "漫画",
+      "tags": [
+        "漫画",
+        "1kkk",
+        "移动版"
+      ],
+      "site": "m.1kkk.com",
+      "url": "http://m.1kkk.com",
+      "path": "sources/Jisu1kkk.json",
+      "hash": "14079235fa3748c4",
+      "version": "1.0.0",
+      "size": 4482,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": true
+    },
     {
       "id": "qbxs",
       "name": "ALlbookweb",

@@ -1,0 +1,43 @@
+{
+  "bookSourceName": "极速漫画",
+  "bookSourceGroup": "漫画",
+  "bookSourceType": 2,
+  "bookSourceUrl": "http://m.1kkk.com",
+  "bookSourceComment": "极速漫画（m.1kkk.com，移动版）。图片列表藏在页面的 eval(p,a,c,k,e,d) 打包串里，需解包；图床强校验 Referer，缺了就是 404，所以每张图都带 Referer。",
+  "enabled": true,
+  "searchUrl": "http://m.1kkk.com/search?title={{key}}&language=1&page={{page}}",
+  "exploreUrl": "[{\"title\":\"最热门\",\"url\":\"http://m.1kkk.com/manhua-list/\"},{\"title\":\"最近更新\",\"url\":\"http://m.1kkk.com/manhua-list-s2/\"},{\"title\":\"最新上架\",\"url\":\"http://m.1kkk.com/manhua-list-s18/\"},{\"title\":\"已完结\",\"url\":\"http://m.1kkk.com/manhua-list-st2/\"},{\"title\":\"连载中\",\"url\":\"http://m.1kkk.com/manhua-list-st1/\"},{\"title\":\"热血\",\"url\":\"http://m.1kkk.com/manhua-rexue/\"},{\"title\":\"恋爱\",\"url\":\"http://m.1kkk.com/manhua-aiqing/\"},{\"title\":\"校园\",\"url\":\"http://m.1kkk.com/manhua-xiaoyuan/\"},{\"title\":\"冒险\",\"url\":\"http://m.1kkk.com/manhua-maoxian/\"},{\"title\":\"科幻\",\"url\":\"http://m.1kkk.com/manhua-kehuan/\"},{\"title\":\"搞笑\",\"url\":\"http://m.1kkk.com/manhua-gaoxiao/\"},{\"title\":\"奇幻\",\"url\":\"http://m.1kkk.com/manhua-qihuan/\"},{\"title\":\"恐怖\",\"url\":\"http://m.1kkk.com/manhua-kongbu/\"},{\"title\":\"悬疑\",\"url\":\"http://m.1kkk.com/manhua-xuanyi/\"},{\"title\":\"治愈\",\"url\":\"http://m.1kkk.com/manhua-zhiyu/\"},{\"title\":\"后宫\",\"url\":\"http://m.1kkk.com/manhua-hougong/\"},{\"title\":\"百合\",\"url\":\"http://m.1kkk.com/manhua-baihe/\"},{\"title\":\"耽美\",\"url\":\"http://m.1kkk.com/manhua-danmei/\"},{\"title\":\"职场\",\"url\":\"http://m.1kkk.com/manhua-zhichang/\"},{\"title\":\"历史\",\"url\":\"http://m.1kkk.com/manhua-lishi/\"},{\"title\":\"美食\",\"url\":\"http://m.1kkk.com/manhua-meishi/\"},{\"title\":\"同人\",\"url\":\"http://m.1kkk.com/manhua-tongren/\"},{\"title\":\"运动\",\"url\":\"http://m.1kkk.com/manhua-jingji/\"},{\"title\":\"机甲\",\"url\":\"http://m.1kkk.com/manhua-jizhan/\"},{\"title\":\"侦探\",\"url\":\"http://m.1kkk.com/manhua-zhentan/\"},{\"title\":\"战争\",\"url\":\"http://m.1kkk.com/manhua-zhanzheng/\"}]",
+  "ruleSearch": {
+    "bookList": ".book-list li",
+    "name": ".book-list-info-title@text",
+    "bookUrl": ".book-list-cover a@href",
+    "coverUrl": ".book-list-cover-img@src",
+    "intro": ".book-list-info-desc@text"
+  },
+  "ruleExplore": {
+    "bookList": ".manga-list-2 li",
+    "name": ".manga-list-2-title@text",
+    "bookUrl": ".manga-list-2-title a@href",
+    "coverUrl": ".manga-list-2-cover-img@src",
+    "lastChapter": ".manga-list-2-tip@text"
+  },
+  "ruleBookInfo": {
+    "name": ".detail-main-info-title@text",
+    "author": "@css:.detail-main-info-author@text##作者：##",
+    "intro": ".detail-desc@text",
+    "coverUrl": ".detail-main-cover img@src",
+    "kind": "@css:.detail-main-info-class@text",
+    "lastChapter": ".detail-list-title-2@text",
+    "updateTime": "@css:.detail-main-info-status@text##更新[：:]\\s*##"
+  },
+  "ruleToc": {
+    "chapterList": "a.chapteritem",
+    "chapterName": "@text",
+    "chapterUrl": "@href"
+  },
+  "ruleContent": {
+    "content": "@js:var ref='http://m.1kkk.com/';\nvar html=String(result||'');\nvar i=html.indexOf('eval(function(p,a,c,k,e,d)');\nvar urls=[];\nif(i>=0){\n  var j=html.indexOf('(',i);\n  var depth=0,end=-1;\n  for(var p=j;p<html.length;p++){\n    var ch=html.charAt(p);\n    if(ch==='(')depth++;\n    else if(ch===')'){depth--;if(depth===0){end=p;break;}}\n  }\n  if(end>0){\n    var expr=html.substring(j,end+1);\n    var unpacked='';\n    try{ unpacked=(new Function('return '+expr))(); }catch(e){ unpacked=''; }\n    if(typeof unpacked!=='string') unpacked=String(unpacked||'');\n    var m=unpacked.match(/newImgs\\s*=\\s*\\[([\\s\\S]*?)\\]/);\n    if(m){\n      var re=/['\"]([^'\"]+)['\"]/g,q;\n      while((q=re.exec(m[1]))){ urls.push(q[1]); }\n    }\n  }\n}\nif(!urls.length){\n  var re2=/<img[^>]+src=\"([^\"]*(?:cdndm5|\\.jpg|\\.webp)[^\"]*)\"/g,q2;\n  while((q2=re2.exec(html))){ urls.push(q2[1]); }\n}\nvar hdr='{\"headers\":{\"Referer\":\"'+ref+'\",\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36\"}}';\nvar out=[];\nfor(var k=0;k<urls.length;k++){ out.push(urls[k]+','+hdr); }\nresult=out.join('\\n');",
+    "imageStyle": "FULL"
+  },
+  "reverseChapters": true
+}

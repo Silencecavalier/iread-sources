@@ -49,6 +49,18 @@
       "version": "1.0.0",
       "updatedAt": "2026-11-04",
       "group": "笔趣阁"
+    },
+    "Jisu1kkk": {
+      "title": "极速漫画",
+      "desc": "极速漫画移动版（m.1kkk.com）。图片列表在 eval 打包串里需解包，图床强校验 Referer，缺了就是 404。",
+      "tags": [
+        "漫画",
+        "1kkk",
+        "移动版"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-04",
+      "featured": true
     }
   }
 }
