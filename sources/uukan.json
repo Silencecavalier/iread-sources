@@ -1,0 +1,43 @@
+{
+  "bookSourceName": "UU看书",
+  "bookSourceUrl": "https://www.uukan.org",
+  "bookSourceGroup": "自建",
+  "bookSourceType": 0,
+  "bookSourceComment": "手工为 iread 适配。一次操作只发必要请求：搜索 1 次、详情 1 次、目录每 500 章 1 次（自动翻页，最多 20 页）、正文 1 次。站点对短时间超过 10 次请求会限流，请勿对它跑「快筛/慢筛」。发现页分类直接对应站点小说分类（玄幻/仙侠/都市…），分类页与搜索页本身不输出封面图，封面只在书籍详情页，故列表卡片无封面、详情页与书架有封面。",
+  "enabled": true,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\",\"Accept-Language\":\"zh-CN,zh;q=0.9\",\"Referer\":\"https://www.uukan.org/\"}",
+  "searchUrl": "/search/{{key}}.html",
+  "exploreUrl": "玄幻::/library/4UIdwqRRY7YW2MNwYUJqYe.html\n仙侠::/library/1VFsPoIVRJXnEcEGknQVQ2.html\n都市::/library/2bD14zoJ5n5YWC79VN8jh8.html\n历史::/library/7eiUerXvqeoCdxVif52um.html\n科幻::/library/7Xby7wh876h3OAhmgyKZ5l.html\n军事::/library/5jQFwniy0ePOv6DBahKY6P.html\n言情::/library/P8uKOtwN1c01SfLxrs6Ll.html\n轻小说::/library/1hYULp6SulAZsZTocTgoTS.html\n悬疑::/library/4ZIqhbFqr32QQNJNDSpO5x.html\n奇幻::/library/1H7unJWOM0QO1o42hTlCyh.html\n游戏::/library/4tOTEk1VrhzatBAv1uNyyi.html\n诸天无限::/library/3L3Pimr4tThRWMyxdRoQlP.html\n武侠::/library/61Zip3gWvdKW6DruzfMmgM.html\n重生::/library/1AkF9vmX7E5lpf2FUyxDzJ.html\n体育::/library/1PmWSRSMnPZv63sO8Lp3xR.html\n现实::/library/2F4irggUl2IuJ75CIdnyEa.html\n穿越::/library/1ymCyAWjczVtChji5DJwhv.html\n未删减::/library/3RJ1QnczDOsEL8sfB3M6GQ.html",
+  "ruleSearch": {
+    "bookList": "class.bookbox",
+    "name": "class.bookname@tag.a@text",
+    "author": "class.author.0@text##作者：(.*)##$1",
+    "intro": "class.update@text##简介：(.*)##$1",
+    "lastChapter": "class.cat@tag.a@text",
+    "bookUrl": "class.bookname@tag.a@href"
+  },
+  "ruleExplore": {
+    "bookList": "class.bookbox",
+    "name": "class.bookname@tag.a@text",
+    "author": "class.author.0@text##作者：(.*)##$1",
+    "bookUrl": "class.bookname@tag.a@href"
+  },
+  "ruleBookInfo": {
+    "name": "class.booktitle@text",
+    "author": "class.booktag@tag.a.0@text",
+    "kind": "class.booktag@tag.a.1@text",
+    "lastChapter": "class.bookchapter@text",
+    "intro": "class.bookintro@text",
+    "coverUrl": "class.bookcover@tag.img@src",
+    "tocUrl": "class.chapterlist@tag.dd.-1@tag.a@href"
+  },
+  "ruleToc": {
+    "chapterList": "id.allchapter@tag.dd",
+    "chapterName": "tag.a@text",
+    "chapterUrl": "tag.a@href",
+    "nextTocUrl": "id.linkNext@href"
+  },
+  "ruleContent": {
+    "content": "id.content@html"
+  }
+}

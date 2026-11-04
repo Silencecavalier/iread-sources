@@ -1,0 +1,45 @@
+{
+  "bookSourceName": "笔趣阁(手机版)",
+  "bookSourceUrl": "https://m.biquge12345.com",
+  "bookSourceGroup": "笔趣阁",
+  "bookSourceType": 0,
+  "customOrder": 0,
+  "enabled": true,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36\",\"Referer\":\"https://m.biquge12345.com/\"}",
+  "searchUrl": "/waps.php,{\"method\":\"POST\",\"body\":\"s={{key}}&submit=\",\"charset\":\"utf-8\"}",
+  "ruleSearch": {
+    "bookList": "class.sort@tag.li",
+    "name": "class.name@text",
+    "author": "class.zuo@text",
+    "bookUrl": "class.name@href",
+    "coverUrl": "",
+    "intro": "",
+    "lastChapter": ""
+  },
+  "exploreUrl": "玄幻魔法::https://m.biquge12345.com/sort/1_1/\n仙侠修真::https://m.biquge12345.com/sort/2_1/\n都市言情::https://m.biquge12345.com/sort/3_1/\n网游动漫::https://m.biquge12345.com/sort/4_1/\n科幻小说::https://m.biquge12345.com/sort/5_1/\n恐怖灵异::https://m.biquge12345.com/sort/6_1/\n历史军事::https://m.biquge12345.com/sort/7_1/\n其他类型::https://m.biquge12345.com/sort/8_1/\n排行榜::https://m.biquge12345.com/top/\n完本::https://m.biquge12345.com/full/",
+  "ruleExplore": {
+    "bookList": "class.sort@tag.li",
+    "name": "class.name@text",
+    "author": "class.zuo@text## 著##",
+    "bookUrl": "class.name@href",
+    "coverUrl": "class.tu@tag.img@src",
+    "intro": "class.intro@text"
+  },
+  "ruleBookInfo": {
+    "name": "tag.h1@text",
+    "author": "class.p2@tag.li.0@text##作者：##",
+    "intro": "class.jianjie@text",
+    "coverUrl": "class.p1@tag.img@src",
+    "tocUrl": "text.全部章节列表@href",
+    "lastChapter": "class.sort.0@tag.li.0@tag.a@text",
+    "wordCount": ""
+  },
+  "ruleToc": {
+    "chapterList": "class.fen_4@tag.li||class.sort@tag.li",
+    "chapterName": "tag.a@text",
+    "chapterUrl": "tag.a@href"
+  },
+  "ruleContent": {
+    "content": "@CSS:div#txt@html##(一秒记住[^<]{0,60}无弹窗！|笔趣阁[(]biquge12345[.]com[)]更新快，无弹窗！|（本章未完，请点击下一页继续阅读）|[^<>]{0,45}[(]第[0-9]+/[0-9]+页[)])##"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "bookSourceComment": "www.q0557.com 笔趣阁 PC 版：列表页与搜索页不同构，目录整本在详情页（无目录分页），正文单页无水印。2026-10-29 实测。",
+  "bookSourceGroup": "笔趣阁",
+  "bookSourceName": "笔趣阁 q0557",
+  "bookSourceType": 0,
+  "bookSourceUrl": "https://www.q0557.com",
+  "enabled": true,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\",\"Accept\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8\",\"Accept-Language\":\"zh-CN,zh;q=0.9,en;q=0.8\",\"Referer\":\"https://www.q0557.com/\"}",
+  "searchUrl": "/search/{{key}}/{{page}}",
+  "exploreUrl": "全部::/index.php/category/page/{{page}}\n男频::/index.php/category/list/1/page/{{page}}\n女频::/index.php/category/list/2/page/{{page}}\n玄幻::/index.php/category/tags/1/page/{{page}}\n都市::/index.php/category/tags/5/page/{{page}}\n言情::/index.php/category/tags/6/page/{{page}}\n历史::/index.php/category/tags/7/page/{{page}}\n科幻::/index.php/category/tags/11/page/{{page}}\n连载::/index.php/category/finish/1/page/{{page}}\n免费::/index.php/category/pay/1/page/{{page}}\n最新更新::/index.php/category/order/addtime/page/{{page}}\n最多收藏::/index.php/category/order/shits/page/{{page}}",
+  "ruleSearch": {
+    "bookList": ".story-search__container-main .list .j-item",
+    "name": ".j-item-title@text",
+    "author": ".item-info__multi@text##([0-9][0-9.]*[ ]*万字|[0-9]+[ ]*字)$##",
+    "intro": ".item-info__desc@text##^[ ]*简介[：:][ ]*([^]*?)([ ]*查看详情[>]?)?[ ]*$##$1",
+    "lastChapter": ".item-info__latest a@text",
+    "coverUrl": "a.item-cover img@data-src",
+    "bookUrl": ".j-item-title@href"
+  },
+  "ruleExplore": {
+    "bookList": ".story-category__result ul.list-wrapper > li.item",
+    "name": ".info .title a@text",
+    "author": ".info .multi@text##^(男频|女频)[ ]*·[ ]*##",
+    "intro": ".info .desc@text",
+    "bookUrl": ".info .title a@href",
+    "coverUrl": ".cover-wrapper img@data-src"
+  },
+  "ruleBookInfo": {
+    "name": ".story-detail__info .title h1@text",
+    "author": ".story-detail__info dl.author dd a@text",
+    "lastChapter": ".catalog__header .notice@text##^[0-9][0-9: -]*更新[ ]*##",
+    "intro": ".story-detail__info .desc span@text",
+    "coverUrl": ".story-detail__info .cover img@data-src",
+    "wordCount": ".story-detail__info .data dt:first-child@text"
+  },
+  "ruleToc": {
+    "chapterList": "ul.j-catalog-list li.item a.j-catalog-link",
+    "chapterName": "@text",
+    "chapterUrl": "@href"
+  },
+  "ruleContent": {
+    "content": "div.content"
+  }
+}

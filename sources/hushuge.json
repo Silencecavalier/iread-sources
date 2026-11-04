@@ -1,0 +1,35 @@
+{
+  "bookSourceName": "互书阁",
+  "bookSourceUrl": "https://www.hushuge.com",
+  "bookSourceGroup": "中文·无搜索",
+  "bookSourceType": 0,
+  "bookSourceComment": "互书阁 www.hushuge.com。发现/详情/目录/正文可用；站内搜索被 Cloudflare 按 /search 路径挑战（403 Just a moment），本源不含 searchUrl。正文须 POST /api/reader_js.php，故 chapterUrl 带 ,{…} 请求选项。",
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
+  "exploreUrl": "全部::https://www.hushuge.com/sort/\n玄幻魔法::https://www.hushuge.com/sort/1/1/\n武侠修真::https://www.hushuge.com/sort/2/1/\n都市言情::https://www.hushuge.com/sort/3/1/\n历史军事::https://www.hushuge.com/sort/4/1/\n科幻灵异::https://www.hushuge.com/sort/5/1/\n游戏竞技::https://www.hushuge.com/sort/6/1/\n侦探推理::https://www.hushuge.com/sort/7/1/\n其他类型::https://www.hushuge.com/sort/8/1/",
+  "ruleExplore": {
+    "bookList": "@CSS:ul.flex > li",
+    "name": "@CSS:div.w100 h2@text",
+    "author": "@CSS:a[href^='/author/'] i@text",
+    "bookUrl": "@CSS:div.img_span a@href",
+    "coverUrl": "@CSS:div.img_span img@data-original",
+    "intro": "@CSS:p.indent@text",
+    "lastChapter": "@CSS:a[href^='/read/'] i@text"
+  },
+  "ruleBookInfo": {
+    "name": "@CSS:div.novel_info_title h1@text",
+    "author": "@CSS:div.novel_info_title a[href^='/author/']@text",
+    "intro": "@CSS:div.intro@text",
+    "coverUrl": "@CSS:div.novel_info_main img@data-original",
+    "tocUrl": "@CSS:a.l_btn_0@href",
+    "lastChapter": "@CSS:div.novel_info_title p a[href*='/read/']@text",
+    "wordCount": ""
+  },
+  "ruleToc": {
+    "chapterList": "@CSS:#ul_all_chapters li",
+    "chapterName": "@CSS:a@text",
+    "chapterUrl": "@js:(function(){var s=String(result||'');var m=s.match(/read[/]([0-9]+)[/]([0-9]+)[.]html/);if(!m)return '';return `/api/reader_js.php,{method:'POST',body:'articleid=${m[1]}&chapterid=${m[2]}&pid=pid',headers:{'Content-Type':'application/x-www-form-urlencoded'}}`;})()"
+  },
+  "ruleContent": {
+    "content": "@CSS:body"
+  }
+}

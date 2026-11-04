@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "name": "iread 书源库",
+  "libraryHash": "eee52f12bebac9b4",
+  "generatedAt": "2026-11-04T01:10:22Z",
+  "count": 5,
+  "totalSize": 12902,
+  "groups": [
+    "全本小说网",
+    "自建",
+    "笔趣阁",
+    "中文·无搜索"
+  ],
+  "sources": [
+    {
+      "id": "qbxs",
+      "name": "全本小说网",
+      "title": "全本小说网",
+      "desc": "书库偏老书与冷门书，《出阳神》这类长篇能全本拿到。目录一整页，正文无分页。",
+      "group": "全本小说网",
+      "tags": [
+        "全本小说网",
+        "综合",
+        "长篇",
+        "搜索可用"
+      ],
+      "site": "qbxs.net",
+      "url": "https://qbxs.net",
+      "path": "sources/qbxs.json",
+      "hash": "5e93e673332fb0d6",
+      "version": "1.0.1",
+      "size": 3112,
+      "updatedAt": "2026-10-29",
+      "minAppVersion": "1.0.0",
+      "featured": true
+    },
+    {
+      "id": "uukan",
+      "name": "UU看书",
+      "title": "UU看书",
+      "desc": "自建索引站，搜索与详情同构，目录一次给全，正文干净。日常主力源，也是热榜数据的出处。",
+      "group": "自建",
+      "tags": [
+        "自建",
+        "综合",
+        "搜索可用",
+        "完整目录"
+      ],
+      "site": "uukan.org",
+      "url": "https://www.uukan.org",
+      "path": "sources/uukan.json",
+      "hash": "6b046b1ddcc67942",
+      "version": "1.0.3",
+      "size": 2803,
+      "updatedAt": "2026-10-29",
+      "minAppVersion": "1.0.0",
+      "featured": true
+    },
+    {
+      "id": "biquge-q0557",
+      "name": "笔趣阁 q0557",
+      "title": "笔趣阁 q0557",
+      "desc": "PC 版结构，列表页与搜索页不同构；整本目录在详情页，没有目录分页。",
+      "group": "笔趣阁",
+      "tags": [
+        "笔趣阁",
+        "PC站"
+      ],
+      "site": "q0557.com",
+      "url": "https://www.q0557.com",
+      "path": "sources/biquge-q0557.json",
+      "hash": "b7ab8f959648fd22",
+      "version": "1.0.0",
+      "size": 2686,
+      "updatedAt": "2026-10-29",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
+      "id": "biquge-mobile",
+      "name": "笔趣阁(手机版)",
+      "title": "笔趣阁（手机版）",
+      "desc": "m 站的移动端结构：搜索走 POST，列表与详情分开解析，正文单页。",
+      "group": "笔趣阁",
+      "tags": [
+        "笔趣阁",
+        "手机站"
+      ],
+      "site": "m.biquge12345.com",
+      "url": "https://m.biquge12345.com",
+      "path": "sources/biquge-mobile.json",
+      "hash": "c9a52672320c645c",
+      "version": "1.0.0",
+      "size": 2145,
+      "updatedAt": "2026-10-29",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
+      "id": "hushuge",
+      "name": "互书阁",
+      "title": "互书阁",
+      "desc": "只有分类页、没有可用搜索接口的源，适合从发现页翻书。",
+      "group": "中文·无搜索",
+      "tags": [
+        "中文·无搜索",
+        "只有发现页"
+      ],
+      "site": "hushuge.com",
+      "url": "https://www.hushuge.com",
+      "path": "sources/hushuge.json",
+      "hash": "4ab9d85c6b36ed7c",
+      "version": "1.0.0",
+      "size": 2156,
+      "updatedAt": "2026-10-29",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    }
+  ]
+}
