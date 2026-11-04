@@ -120,3 +120,17 @@ npx serve .            # 或者 python -m http.server 8000
 - 只监听本机 `127.0.0.1`，地址带一次性令牌，关掉窗口即停止；零依赖，只要 Node.js（细节见 [admin/README.md](admin/README.md)）
 
 改名字会同时改书源本体的 `bookSourceName` 和 `catalog.json` 的 `title`，内容指纹随之变化 → iread 的「内置书源」会显示「更新」；装的时候复用同一个 id，不会变成两条。
+
+## 七、加速地址（国内访问慢就用它）
+
+同一份 `manifest.json` 有四个可用地址，内容完全一样：
+
+| 地址 | 说明 | 实测 |
+|---|---|---|
+| `https://raw.githubusercontent.com/Silencecavalier/iread-sources/main/manifest.json` | GitHub 原始文件，最快 | 0.76s |
+| `https://gh-proxy.com/https://raw.githubusercontent.com/Silencecavalier/iread-sources/main/manifest.json` | gh-proxy 加速（raw 被墙时用） | 1.22s |
+| `https://cdn.jsdelivr.net/gh/Silencecavalier/iread-sources@main/manifest.json` | jsDelivr 镜像，**有最长 12 小时缓存** | 1.90s（可能给旧清单） |
+| `https://silencecavalier.github.io/iread-sources/manifest.json` | GitHub Pages 直连 | 3.61s |
+
+「内置书源」插件 v1.1.3 起默认四个地址并行拉、取最新的那份，所以你什么都不用填；
+如果你手上有自己的镜像，也可以把地址粘进插件里覆盖默认值。
