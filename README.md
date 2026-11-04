@@ -132,5 +132,5 @@ npx serve .            # 或者 python -m http.server 8000
 | `https://cdn.jsdelivr.net/gh/Silencecavalier/iread-sources@main/manifest.json` | jsDelivr 镜像，**有最长 12 小时缓存** | 1.90s（可能给旧清单） |
 | `https://silencecavalier.github.io/iread-sources/manifest.json` | GitHub Pages 直连 | 3.61s |
 
-「内置书源」插件 v1.1.3 起默认四个地址并行拉、取最新的那份，所以你什么都不用填；
-如果你手上有自己的镜像，也可以把地址粘进插件里覆盖默认值。
+「内置书源」插件 v1.1.4 起**页面上不用填地址**：默认走 gh-proxy 加速的 raw，失败自动换 raw 直连 → Pages，
+三个地址并行比新旧，取最新的一份（jsDelivr 因 12 小时缓存不参与）。
