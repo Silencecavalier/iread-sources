@@ -84,6 +84,28 @@
       "version": "1.0.0",
       "updatedAt": "2026-11-04",
       "featured": true
+    },
+    "Kanman": {
+      "title": "看漫画",
+      "desc": "看漫画（m.kanman.com）：搜索与 10 个分类走 /api/getsortlist/ JSON 接口；章节图在阅读页内联 chapter_img_list（auth_key 约 1 小时）。",
+      "tags": [
+        "漫画",
+        "JSON接口"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-04",
+      "featured": true
+    },
+    "Zymk": {
+      "title": "知音漫客",
+      "desc": "知音漫客（m.zymk.cn）：搜索与 12 个分类走 /apinew/getsortlist_new 接口；章节图按 start_var/end_var 拼 mhpic 地址。",
+      "tags": [
+        "漫画",
+        "JSON接口"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-04",
+      "featured": true
     }
   }
 }
