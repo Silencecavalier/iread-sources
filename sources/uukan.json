@@ -1,7 +1,6 @@
 {
-  "bookSourceName": "UU看书",
+  "bookSourceName": "UURead",
   "bookSourceUrl": "https://www.uukan.org",
-  "bookSourceGroup": "自建",
   "bookSourceType": 0,
   "bookSourceComment": "手工为 iread 适配。一次操作只发必要请求：搜索 1 次、详情 1 次、目录每 500 章 1 次（自动翻页，最多 20 页）、正文 1 次。站点对短时间超过 10 次请求会限流，请勿对它跑「快筛/慢筛」。发现页分类直接对应站点小说分类（玄幻/仙侠/都市…），分类页与搜索页本身不输出封面图，封面只在书籍详情页，故列表卡片无封面、详情页与书架有封面。",
   "enabled": true,

@@ -1,7 +1,6 @@
 {
-  "bookSourceName": "全本小说网",
+  "bookSourceName": "ALlbookweb",
   "bookSourceUrl": "https://qbxs.net",
-  "bookSourceGroup": "全本小说网",
   "bookSourceType": 0,
   "bookSourceComment": "iread 手写源（非模板生成）。搜索走 POST /search/（searchkey=关键词，已用 java.encodeURI 百分号编码，站点只认编码后的值）；分类为 /sort/<n>/1/ 与 /quanben/sort/，每页 30 条且列表带封面；目录完整内联在详情页 div.ml_list（剑来 1299 章，无分页）；正文在 #articlecontent，每章固定 2 页，续页是同章 _2.html（第 2 页才出现“下一章”，所以 text.下一页 自然收尾）；站点每页插两条随机同形字水印（“[全本小说]:qbxs. N e t 一秒记住！” 与 “🅠 𝔹 x 𝒮 . n e t”），已用“无汉字+点+net”的特征一次清掉。正文规则必须写成 @XPath: 形式：iread 的 contentText 对纯 CSS 规则只要匹配到元素就直接返回文本、跳过 ## 净化，只有 JS/XPath 分支才执行替换。本规则串内不含任何反斜杠转义。",
   "searchUrl": "/search/,{\"method\":\"POST\",\"body\":\"searchkey={{java.encodeURI(key)}}\",\"charset\":\"utf-8\"}",

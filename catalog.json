@@ -2,57 +2,37 @@
   "_说明": "这是书源库的『人工元数据』，可选。id 必须和 sources/ 下的文件名一致（不带 .json）。这里能写 title / desc / tags / version / updatedAt / featured；没写的字段会从书源 JSON 里自动推断（名称取 bookSourceName、分组取 bookSourceGroup、版本号取内容 hash）。改完记得跑 node scripts/build-manifest.js。",
   "sources": {
     "uukan": {
-      "title": "UU看书",
-      "desc": "自建索引站，搜索与详情同构，目录一次给全，正文干净。日常主力源，也是热榜数据的出处。",
-      "tags": [
-        "综合",
-        "搜索可用",
-        "完整目录"
-      ],
+      "title": "UURead",
       "version": "1.0.3",
-      "updatedAt": "2026-10-29",
+      "updatedAt": "2026-11-04",
       "featured": true
     },
     "qbxs": {
-      "title": "全本小说网",
-      "desc": "书库偏老书与冷门书，《出阳神》这类长篇能全本拿到。目录一整页，正文无分页。",
-      "tags": [
-        "综合",
-        "长篇",
-        "搜索可用"
-      ],
+      "title": "ALlbookweb",
       "version": "1.0.1",
-      "updatedAt": "2026-10-29",
+      "updatedAt": "2026-11-04",
       "featured": true
     },
     "biquge-mobile": {
-      "title": "笔趣阁（手机版）",
-      "desc": "m 站的移动端结构：搜索走 POST，列表与详情分开解析，正文单页。",
+      "title": "BiquG-A",
       "tags": [
-        "笔趣阁",
-        "手机站"
+        "笔趣阁"
       ],
       "version": "1.0.0",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-11-04"
     },
     "biquge-q0557": {
-      "title": "笔趣阁 q0557",
-      "desc": "PC 版结构，列表页与搜索页不同构；整本目录在详情页，没有目录分页。",
+      "title": "BiquG-B",
       "tags": [
-        "笔趣阁",
-        "PC站"
+        "笔趣阁"
       ],
       "version": "1.0.0",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-11-04"
     },
     "hushuge": {
-      "title": "互书阁",
-      "desc": "只有分类页、没有可用搜索接口的源，适合从发现页翻书。",
-      "tags": [
-        "只有发现页"
-      ],
+      "title": "HubookG",
       "version": "1.0.0",
-      "updatedAt": "2026-10-29"
+      "updatedAt": "2026-11-04"
     }
   }
 }

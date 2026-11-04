@@ -1,7 +1,6 @@
 {
-  "bookSourceName": "互书阁",
+  "bookSourceName": "HubookG",
   "bookSourceUrl": "https://www.hushuge.com",
-  "bookSourceGroup": "中文·无搜索",
   "bookSourceType": 0,
   "bookSourceComment": "互书阁 www.hushuge.com。发现/详情/目录/正文可用；站内搜索被 Cloudflare 按 /search 路径挑战（403 Just a moment），本源不含 searchUrl。正文须 POST /api/reader_js.php，故 chapterUrl 带 ,{…} 请求选项。",
   "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\"}",
