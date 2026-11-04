@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "e17948771c28de65",
-  "generatedAt": "2026-11-04T09:36:18Z",
-  "count": 9,
-  "totalSize": 26042,
+  "libraryHash": "7c4528ad865bb820",
+  "generatedAt": "2026-11-04T09:46:19Z",
+  "count": 10,
+  "totalSize": 29190,
   "groups": [
     "漫画",
     "未分组",
@@ -49,6 +49,26 @@
       "hash": "14079235fa3748c4",
       "version": "1.0.0",
       "size": 4482,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": true
+    },
+    {
+      "id": "Mkzhan",
+      "name": "漫客栈",
+      "title": "漫客栈",
+      "desc": "漫客栈（www.mkzhan.com）：目录在 data-hreflink 上（页面 a 无 href），章节图走 comic.mkzcdn.com JSON 接口。",
+      "group": "漫画",
+      "tags": [
+        "漫画",
+        "JSON接口"
+      ],
+      "site": "mkzhan.com",
+      "url": "https://www.mkzhan.com",
+      "path": "sources/Mkzhan.json",
+      "hash": "31bf71102b64f14c",
+      "version": "1.0.0",
+      "size": 3148,
       "updatedAt": "2026-11-04",
       "minAppVersion": "1.0.0",
       "featured": true

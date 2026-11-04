@@ -73,6 +73,17 @@
       "version": "1.0.0",
       "updatedAt": "2026-11-04",
       "featured": true
+    },
+    "Mkzhan": {
+      "title": "漫客栈",
+      "desc": "漫客栈（www.mkzhan.com）：目录在 data-hreflink 上（页面 a 无 href），章节图走 comic.mkzcdn.com JSON 接口。",
+      "tags": [
+        "漫画",
+        "JSON接口"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-04",
+      "featured": true
     }
   }
 }
