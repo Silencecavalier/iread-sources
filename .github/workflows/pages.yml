@@ -35,9 +35,14 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      - name: 组装发布目录（admin/ 是本机管理工具，不发布）
+        run: |
+          mkdir -p _site
+          cp -r index.html assets sources manifest.json catalog.json .nojekyll _site/
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     if: github.event_name != 'pull_request'

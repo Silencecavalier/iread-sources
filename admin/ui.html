@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iread 书源库 · 管理后台</title>
+<style>
+:root{
+  --bg:#12151a; --panel:#1b1f27; --panel2:#222833; --line:#2b303b;
+  --fg:#e8eaf0; --fg2:#9aa3b2; --fg3:#6b7484;
+  --gold:#d8b071; --green:#5fbf7f; --red:#e06b6b; --blue:#6ba7e0;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:var(--bg); color:var(--fg); font:14px/1.55 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+  display:flex; flex-direction:column;
+}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#333a46;border-radius:6px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* 顶栏 */
+.top{
+  display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#171b22,#141820);flex:0 0 auto;flex-wrap:wrap;
+}
+.top h1{font-size:15px;margin:0;font-weight:600;letter-spacing:.3px}
+.top h1 span{color:var(--fg3);font-weight:400;margin-left:8px;font-size:12px}
+.badge{font-size:12px;color:var(--fg2);border:1px solid var(--line);border-radius:20px;padding:2px 10px;white-space:nowrap}
+.badge b{color:var(--gold);font-weight:600}
+.badge.ok b{color:var(--green)}
+.badge.warn b{color:var(--red)}
+.spacer{flex:1}
+.btn{
+  border:1px solid var(--line);background:var(--panel2);border-radius:9px;padding:7px 13px;font-size:13px;
+  transition:.15s; white-space:nowrap;
+}
+.btn:hover{background:#2a313d;border-color:#3a4250}
+.btn--main{background:var(--gold);color:#20180c;border-color:#c39c5c;font-weight:600}
+.btn--main:hover{background:#e5bd7e}
+.btn--danger{color:var(--red);border-color:#4a2b2b}
+.btn--danger:hover{background:#2e2020}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* 主体 */
+.main{display:flex;flex:1;min-height:0}
+.listwrap{width:430px;flex:0 0 430px;border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+.filters{padding:12px 14px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)}
+.filters input,.filters select{
+  background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:8px 10px;width:100%;
+}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{
+  font-size:12px;border:1px solid var(--line);background:transparent;color:var(--fg2);
+  border-radius:20px;padding:3px 10px;
+}
+.chip.on{background:#2d3441;color:var(--fg);border-color:#3d4553}
+.list{overflow:auto;flex:1;padding:8px}
+.item{
+  display:flex;gap:10px;align-items:flex-start;padding:10px 11px;border-radius:10px;cursor:pointer;
+  border:1px solid transparent;
+}
+.item:hover{background:#1e232c}
+.item.on{background:#232a35;border-color:#3a4351}
+.dot{
+  width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:#2c3440;color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;margin-top:1px;
+}
+.item .nm{font-size:13.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .sub{font-size:11.5px;color:var(--fg3);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tag{font-size:10.5px;padding:1px 6px;border-radius:5px;background:#2a3240;color:var(--fg2);margin-left:6px}
+.tag.warn{background:#3a2a2a;color:#e0a0a0}
+
+/* 右侧编辑区 */
+.edit{flex:1;overflow:auto;padding:20px 24px;min-width:0}
+.empty{color:var(--fg3);margin-top:60px;text-align:center;line-height:2}
+h2{font-size:14px;margin:0 0 14px;font-weight:600}
+h2 small{color:var(--fg3);font-weight:400;margin-left:8px;font-size:12px}
+.field{margin-bottom:14px;max-width:640px}
+.field label{display:block;font-size:12px;color:var(--fg2);margin-bottom:5px}
+.field input[type=text],.field textarea,.field select{
+  width:100%;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:8px 10px;
+}
+.field textarea{min-height:74px;resize:vertical;font-size:13px}
+.field .hint{font-size:11.5px;color:var(--fg3);margin-top:4px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>.field{flex:1;min-width:180px}
+.actions{display:flex;gap:10px;align-items:center;margin:18px 0 8px;flex-wrap:wrap}
+.pill{font-size:12px;color:var(--fg2)}
+pre{
+  background:#0e1116;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto;
+  font:12px/1.5 ui-monospace,Consolas,monospace;color:#c7d0dd;max-height:340px;margin:10px 0 0;
+}
+.note{border-left:3px solid var(--gold);background:#1c2129;padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:var(--fg2);margin:0 0 16px}
+.note.err{border-color:var(--red);color:#f0c0c0}
+
+/* 弹窗 */
+.mask{position:fixed;inset:0;background:rgba(6,8,11,.66);display:none;align-items:center;justify-content:center;padding:24px;z-index:20}
+.mask.on{display:flex}
+.modal{background:#181c23;border:1px solid var(--line);border-radius:16px;padding:20px 22px;width:min(680px,100%);max-height:86vh;overflow:auto}
+.modal h3{margin:0 0 14px;font-size:14px}
+.modal .actions{margin-top:4px}
+.modal textarea{width:100%;min-height:180px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px;font:12.5px/1.5 ui-monospace,Consolas,monospace}
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:#232a35;border:1px solid #3a4351;border-radius:10px;padding:9px 16px;font-size:13px;
+  transition:.22s;z-index:40;pointer-events:none;max-width:70vw;
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.err{border-color:#5a3232;color:#f0b8b8}
+.loading{opacity:.5;pointer-events:none}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>iread 书源库 · 管理后台 <span id="repoPath"></span></h1>
+  <span class="badge" id="bLib">库版本 <b>—</b></span>
+  <span class="badge" id="bCount">书源 <b>—</b></span>
+  <span class="badge" id="bState">—</span>
+  <span class="spacer"></span>
+  <button class="btn" id="btnReload">重新检查</button>
+  <button class="btn btn--main" id="btnAdd">+ 添加书源</button>
+  <button class="btn btn--main" id="btnPublish">生成清单并发布</button>
+</div>
+
+<div class="main">
+  <div class="listwrap">
+    <div class="filters">
+      <input id="q" type="text" placeholder="搜索名称 / id / 分组 / 域名…">
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+  <div class="edit" id="edit">
+    <div class="empty">左边选一个书源开始改<br><span style="font-size:12px">改完点「保存」，再去右上角「生成清单并发布」</span></div>
+  </div>
+</div>
+
+<div class="mask" id="maskAdd">
+  <div class="modal">
+    <h3>添加书源</h3>
+    <div class="field">
+      <label>把书的 JSON 粘进来（支持一个、一个数组、或一包多源）</label>
+      <textarea id="addText" placeholder='{"bookSourceName":"某某书屋","bookSourceUrl":"https://…","ruleSearch":{…}}'></textarea>
+      <div class="hint">也可以 <label style="color:var(--gold);cursor:pointer"><input type="file" id="addFile" accept=".json,.txt" style="display:none">选择一个 .json 文件</label>；文件名会用来生成 id（可留空自动取域名）</div>
+    </div>
+    <div class="field">
+      <label>id（可选，留空自动生成）</label>
+      <input type="text" id="addId" placeholder="例如 qbxs">
+    </div>
+    <div class="actions">
+      <button class="btn btn--main" id="addOk">添加</button>
+      <button class="btn" data-close="maskAdd">取消</button>
+      <span class="pill" id="addMsg"></span>
+    </div>
+  </div>
+</div>
+
+<div class="mask" id="maskPub">
+  <div class="modal">
+    <h3>生成清单并发布</h3>
+    <div class="note">会依次执行：<b>build-manifest.js</b>（重新生成 manifest.json）→ <b>git add/commit</b> → <b>git push origin main</b>。推送后约 1 分钟 GitHub Pages 生效。</div>
+    <div class="field">
+      <label>提交信息</label>
+      <input type="text" id="pubMsg" placeholder="例如：add: 某某书屋">
+    </div>
+    <div class="actions">
+      <button class="btn btn--main" id="pubOk">开始</button>
+      <button class="btn" data-close="maskPub">取消</button>
+    </div>
+    <pre id="pubLog" style="display:none"></pre>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  var QS = new URLSearchParams(location.search);
+  var PICK = QS.get('pick') || '';
+  var TOKEN = QS.get('t') || sessionStorage.getItem('adminToken') || '';
+  if (TOKEN) sessionStorage.setItem('adminToken', TOKEN);
+
+  var state = { sources: [], cur: null, q: '', group: '', validate: null, manifest: null, ctx: {} };
+
+  var el = function (id) { return document.getElementById(id); };
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  function toast(msg, isErr) {
+    var t = el('toast');
+    t.textContent = msg;
+    t.className = 'toast on' + (isErr ? ' err' : '');
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.className = 'toast'; }, 2600);
+  }
+  async function api(p, body, method) {
+    var opt = { method: method || (body ? 'POST' : 'GET'), headers: { 'X-Admin-Token': TOKEN } };
+    if (body) { opt.headers['Content-Type'] = 'application/json'; opt.body = JSON.stringify(body); }
+    var r = await fetch(p, opt);
+    var j = null;
+    try { j = await r.json(); } catch (e) { throw new Error('服务返回的不是 JSON（HTTP ' + r.status + '）'); }
+    if (!r.ok || j.ok === false) throw new Error(j.error || ('HTTP ' + r.status));
+    return j;
+  }
+
+  /* ---------------- 列表 ---------------- */
+  function filtered() {
+    var q = state.q.trim().toLowerCase();
+    return state.sources.filter(function (s) {
+      if (state.group && s.group !== state.group) return false;
+      if (!q) return true;
+      return [s.name, s.id, s.group, s.site, (s.tags || []).join(' '), s.desc].join(' ').toLowerCase().indexOf(q) >= 0;
+    });
+  }
+  function paintChips() {
+    var groups = {};
+    state.sources.forEach(function (s) { var g = s.group || '未分组'; groups[g] = (groups[g] || 0) + 1; });
+    var html = '<button class="chip' + (state.group ? '' : ' on') + '" data-g="">全部 ' + state.sources.length + '</button>';
+    Object.keys(groups).sort().forEach(function (g) {
+      html += '<button class="chip' + (state.group === g ? ' on' : '') + '" data-g="' + esc(g) + '">' + esc(g) + ' ' + groups[g] + '</button>';
+    });
+    el('chips').innerHTML = html;
+  }
+  function paintList() {
+    var rows = filtered();
+    el('list').innerHTML = rows.length ? rows.map(function (s) {
+      var tags = '';
+      if (s.error) tags += '<span class="tag warn">坏文件</span>';
+      if (!s.hasSearch && !s.hasExplore) tags += '<span class="tag warn">无搜索</span>';
+      if (s.featured) tags += '<span class="tag">推荐</span>';
+      return '<div class="item' + (state.cur === s.id ? ' on' : '') + '" data-id="' + esc(s.id) + '">' +
+        '<div class="dot">' + esc(String(s.name || '?').slice(0, 1)) + '</div>' +
+        '<div style="min-width:0;flex:1">' +
+          '<div class="nm">' + esc(s.name) + '<span class="tag">' + esc(s.id) + '</span>' + tags + '</div>' +
+          '<div class="sub">' + esc(s.group || '未分组') + ' · v' + esc(s.version || '—') + ' · ' + (s.size / 1024).toFixed(1) + 'KB · ' + esc(s.hash) + '</div>' +
+        '</div></div>';
+    }).join('') : '<div class="empty">没有匹配的书源</div>';
+  }
+
+  /* ---------------- 编辑区 ---------------- */
+  function paintEdit() {
+    var s = state.sources.filter(function (x) { return x.id === state.cur; })[0];
+    if (!s) {
+      el('edit').innerHTML = '<div class="empty">左边选一个书源开始改<br><span style="font-size:12px">改完点「保存」，再去右上角「生成清单并发布」</span></div>';
+      return;
+    }
+    var v = state.validate || { problems: [] };
+    var mine = (v.problems || []).filter(function (p) { return p.text.indexOf(s.id) >= 0 || p.text.indexOf(s.file) >= 0; });
+    el('edit').innerHTML =
+      '<h2>' + esc(s.name) + ' <small>' + esc(s.id) + ' · ' + esc(s.url || '无地址') + '</small></h2>' +
+      (mine.length ? '<div class="note err">' + mine.map(function (p) { return '✗ ' + esc(p.text); }).join('<br>') + '</div>' : '') +
+      '<div class="row">' +
+        '<div class="field"><label>名称（写进书源本体 bookSourceName）</label><input type="text" id="fName" value="' + esc(s.name) + '"></div>' +
+        '<div class="field"><label>分组（bookSourceGroup，插件列表里显示）</label><input type="text" id="fGroup" value="' + esc(s.groups.join(',')) + '"></div>' +
+      '</div>' +
+      '<div class="field"><label>描述（显示在书源库网页卡片上）</label><textarea id="fDesc">' + esc(s.desc) + '</textarea></div>' +
+      '<div class="row">' +
+        '<div class="field"><label>版本号（人类可读，客户端其实只认 hash）</label><input type="text" id="fVersion" value="' + esc(s.version) + '"></div>' +
+        '<div class="field"><label>标签（逗号分隔）</label><input type="text" id="fTags" value="' + esc((s.tags || []).join(', ')) + '"></div>' +
+      '</div>' +
+      '<div class="row">' +
+        '<div class="field"><label>站点（只读，来自 bookSourceUrl）</label><input type="text" value="' + esc(s.site) + '" disabled></div>' +
+        '<div class="field"><label>内容指纹（改一个字就变，客户端靠它判断更新）</label><input type="text" value="' + esc(s.hash) + '" disabled></div>' +
+      '</div>' +
+      '<div class="actions">' +
+        '<button class="btn btn--main" id="btnSave">保存</button>' +
+        '<button class="btn" id="btnJson">查看原始 JSON</button>' +
+        '<button class="btn btn--danger" id="btnDel">删除这个书源</button>' +
+        '<span class="pill">规则：' + (s.hasSearch ? '搜索✓ ' : '搜索✗ ') + (s.hasExplore ? '发现✓' : '发现✗') + '</span>' +
+      '</div>' +
+      '<pre id="jsonBox" style="display:none"></pre>';
+
+    el('btnSave').onclick = save;
+    el('btnDel').onclick = del;
+    el('btnJson').onclick = function () {
+      var box = el('jsonBox');
+      if (box.style.display === 'none') {
+        api('/api/source?id=' + encodeURIComponent(s.id)).then(function (r) {
+          box.textContent = r.raw; box.style.display = 'block';
+        }).catch(function (e) { toast(e.message, true); });
+      } else box.style.display = 'none';
+    };
+  }
+
+  async function save() {
+    var s = state.cur;
+    if (!s) return;
+    var tags = el('fTags').value.split(/[,，\s]+/).filter(Boolean);
+    try {
+      await api('/api/update', {
+        id: s, fields: {
+          name: el('fName').value.trim(),
+          group: el('fGroup').value.trim(),
+          desc: el('fDesc').value.trim(),
+          version: el('fVersion').value.trim(),
+          tags: tags
+        }
+      });
+      toast('已保存，记得发布');
+      await load(s);
+    } catch (e) { toast(e.message, true); }
+  }
+  async function del() {
+    var s = state.sources.filter(function (x) { return x.id === state.cur; })[0];
+    if (!s) return;
+    if (!confirm('确定删除「' + s.name + '」（sources/' + s.id + '.json）？删除后要发布才会从清单里消失。')) return;
+    try {
+      await api('/api/delete', { id: s.id });
+      toast('已删除');
+      state.cur = null;
+      await load();
+    } catch (e) { toast(e.message, true); }
+  }
+
+  /* ---------------- 加载 ---------------- */
+  async function load(keepCur) {
+    document.body.classList.add('loading');
+    try {
+      var st = await api('/api/state');
+      state.sources = st.sources;
+      state.validate = st.validate;
+      state.manifest = st.manifest;
+      if (PICK && st.sources.some(function (x) { return x.id === PICK; })) { state.cur = PICK; }
+      state.cur = keepCur && st.sources.some(function (s) { return s.id === keepCur; }) ? keepCur : (state.cur && st.sources.some(function (s) { return s.id === state.cur; }) ? state.cur : null);
+      el('repoPath').textContent = st.repo;
+      el('bLib').innerHTML = '库版本 <b>' + esc(st.manifest && st.manifest.libraryHash || '—') + '</b>';
+      el('bCount').innerHTML = '书源 <b>' + st.sources.length + '</b>';
+      var bits = [];
+      bits.push(st.validate.ok ? '清单 <b>已是最新</b>' : '清单 <b>需要重新生成</b>');
+      if (st.dirty.length) bits.push('未提交 <b>' + st.dirty.length + '</b>');
+      if (st.ahead) bits.push('待推送 <b>' + st.ahead + '</b>');
+      el('bState').innerHTML = bits.join(' · ');
+      el('bState').className = 'badge ' + (st.validate.ok ? (st.dirty.length || st.ahead ? 'warn' : 'ok') : 'warn');
+      el('bState').title = (st.lastCommit || '') + (st.validate.log ? '\n' + st.validate.log : '');
+      paintChips(); paintList(); paintEdit();
+    } catch (e) {
+      el('list').innerHTML = '<div class="empty">连不上服务：' + esc(e.message) + '<br><span style="font-size:12px">请用启动窗口里打印的那个带 ?t= 的地址打开</span></div>';
+    } finally {
+      document.body.classList.remove('loading');
+    }
+  }
+
+  /* ---------------- 事件 ---------------- */
+  el('q').oninput = function () { state.q = this.value; paintList(); };
+  el('chips').onclick = function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    state.group = b.dataset.g || '';
+    paintChips(); paintList();
+  };
+  el('list').onclick = function (e) {
+    var it = e.target.closest('.item');
+    if (!it) return;
+    state.cur = it.dataset.id;
+    paintList(); paintEdit();
+  };
+  el('btnReload').onclick = function () { load(); };
+  document.querySelectorAll('[data-close]').forEach(function (b) {
+    b.onclick = function () { el(b.dataset.close).classList.remove('on'); };
+  });
+
+  el('btnAdd').onclick = function () { el('addMsg').textContent = ''; el('maskAdd').classList.add('on'); };
+  el('addFile').onchange = function () {
+    var f = this.files && this.files[0];
+    if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      el('addText').value = String(rd.result || '');
+      if (!el('addId').value) el('addId').value = f.name.replace(/\.(json|txt)$/i, '').replace(/[^a-z0-9-]/gi, '');
+      el('addMsg').textContent = '已读入 ' + f.name;
+    };
+    rd.readAsText(f, 'utf-8');
+  };
+  el('addOk').onclick = async function () {
+    var text = el('addText').value.trim();
+    if (!text) { el('addMsg').textContent = '先粘 JSON 或选文件'; return; }
+    try {
+      var r = await api('/api/add', { text: text, id: el('addId').value.trim() });
+      toast('已添加 ' + r.made.map(function (m) { return m.name; }).join('、'));
+      el('maskAdd').classList.remove('on');
+      el('addText').value = ''; el('addId').value = '';
+      await load(r.made.length === 1 ? r.made[0].id : null);
+    } catch (e) { el('addMsg').textContent = e.message; }
+  };
+
+  el('btnPublish').onclick = function () { el('pubLog').style.display = 'none'; el('maskPub').classList.add('on'); };
+  el('pubOk').onclick = async function () {
+    var btn = this;
+    btn.disabled = true; btn.textContent = '正在发布…';
+    el('pubLog').style.display = 'block';
+    el('pubLog').textContent = '执行中…';
+    try {
+      var r = await api('/api/publish', { message: el('pubMsg').value.trim() });
+      el('pubLog').textContent = (r.ok ? '✓ ' : '✗ ') + (r.step || '') + '\n' + (r.log || '');
+      toast(r.ok ? (r.step === 'nochange' ? '没有改动' : '已推送，约 1 分钟后生效') : '发布失败，看日志', !r.ok);
+      if (r.ok) await load();
+    } catch (e) {
+      el('pubLog').textContent = '✗ ' + e.message;
+      toast(e.message, true);
+    } finally {
+      btn.disabled = false; btn.textContent = '开始';
+    }
+  };
+
+  load();
+})();
+</script>
+</body>
+</html>
