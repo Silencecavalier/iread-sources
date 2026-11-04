@@ -1,118 +1,15 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "9f129cb348a8b1be",
-  "generatedAt": "2026-11-04T09:54:11Z",
-  "count": 12,
-  "totalSize": 36419,
+  "libraryHash": "214e7750253e1dee",
+  "generatedAt": "2026-11-04T10:15:09Z",
+  "count": 7,
+  "totalSize": 18431,
   "groups": [
-    "漫画",
     "未分组",
     "笔趣阁"
   ],
   "sources": [
-    {
-      "id": "Dongmanla",
-      "name": "动漫啦",
-      "title": "动漫啦",
-      "desc": "动漫啦（m.dongman.la）：移动版 HTML 站点，搜索/18 个分类/最近更新；章节正文用 all.html 整话页一次拿全 29 张图。",
-      "group": "漫画",
-      "tags": [
-        "漫画",
-        "HTML",
-        "all.html"
-      ],
-      "site": "m.dongman.la",
-      "url": "https://m.dongman.la",
-      "path": "sources/Dongmanla.json",
-      "hash": "b6d2074d53e48418",
-      "version": "1.0.0",
-      "size": 3129,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": true
-    },
-    {
-      "id": "Jisu1kkk",
-      "name": "极速漫画",
-      "title": "极速漫画",
-      "desc": "极速漫画移动版（m.1kkk.com）。图片列表在 eval 打包串里需解包，图床强校验 Referer，缺了就是 404。",
-      "group": "漫画",
-      "tags": [
-        "漫画",
-        "1kkk",
-        "移动版"
-      ],
-      "site": "m.1kkk.com",
-      "url": "http://m.1kkk.com",
-      "path": "sources/Jisu1kkk.json",
-      "hash": "14079235fa3748c4",
-      "version": "1.0.0",
-      "size": 4482,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": true
-    },
-    {
-      "id": "Kanman",
-      "name": "看漫画",
-      "title": "看漫画",
-      "desc": "看漫画（m.kanman.com）：搜索与 10 个分类走 /api/getsortlist/ JSON 接口；章节图在阅读页内联 chapter_img_list（auth_key 约 1 小时）。",
-      "group": "漫画",
-      "tags": [
-        "漫画",
-        "JSON接口"
-      ],
-      "site": "m.kanman.com",
-      "url": "https://m.kanman.com",
-      "path": "sources/Kanman.json",
-      "hash": "7d2c01fe22254824",
-      "version": "1.0.0",
-      "size": 3491,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": true
-    },
-    {
-      "id": "Mkzhan",
-      "name": "漫客栈",
-      "title": "漫客栈",
-      "desc": "漫客栈（www.mkzhan.com）：目录在 data-hreflink 上（页面 a 无 href），章节图走 comic.mkzcdn.com JSON 接口。",
-      "group": "漫画",
-      "tags": [
-        "漫画",
-        "JSON接口"
-      ],
-      "site": "mkzhan.com",
-      "url": "https://www.mkzhan.com",
-      "path": "sources/Mkzhan.json",
-      "hash": "31bf71102b64f14c",
-      "version": "1.0.0",
-      "size": 3148,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": true
-    },
-    {
-      "id": "Zymk",
-      "name": "知音漫客",
-      "title": "知音漫客",
-      "desc": "知音漫客（m.zymk.cn）：搜索与 12 个分类走 /apinew/getsortlist_new 接口；章节图按 start_var/end_var 拼 mhpic 地址。",
-      "group": "漫画",
-      "tags": [
-        "漫画",
-        "JSON接口"
-      ],
-      "site": "m.zymk.cn",
-      "url": "https://m.zymk.cn",
-      "path": "sources/Zymk.json",
-      "hash": "94156315185f187d",
-      "version": "1.0.0",
-      "size": 3738,
-      "updatedAt": "2026-11-04",
-      "minAppVersion": "1.0.0",
-      "featured": true
-    },
     {
       "id": "qbxs",
       "name": "ALlbookweb",

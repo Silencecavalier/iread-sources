@@ -49,63 +49,6 @@
       "version": "1.0.0",
       "updatedAt": "2026-11-04",
       "group": "笔趣阁"
-    },
-    "Jisu1kkk": {
-      "title": "极速漫画",
-      "desc": "极速漫画移动版（m.1kkk.com）。图片列表在 eval 打包串里需解包，图床强校验 Referer，缺了就是 404。",
-      "tags": [
-        "漫画",
-        "1kkk",
-        "移动版"
-      ],
-      "version": "1.0.0",
-      "updatedAt": "2026-11-04",
-      "featured": true
-    },
-    "Dongmanla": {
-      "title": "动漫啦",
-      "desc": "动漫啦（m.dongman.la）：移动版 HTML 站点，搜索/18 个分类/最近更新；章节正文用 all.html 整话页一次拿全 29 张图。",
-      "tags": [
-        "漫画",
-        "HTML",
-        "all.html"
-      ],
-      "version": "1.0.0",
-      "updatedAt": "2026-11-04",
-      "featured": true
-    },
-    "Mkzhan": {
-      "title": "漫客栈",
-      "desc": "漫客栈（www.mkzhan.com）：目录在 data-hreflink 上（页面 a 无 href），章节图走 comic.mkzcdn.com JSON 接口。",
-      "tags": [
-        "漫画",
-        "JSON接口"
-      ],
-      "version": "1.0.0",
-      "updatedAt": "2026-11-04",
-      "featured": true
-    },
-    "Kanman": {
-      "title": "看漫画",
-      "desc": "看漫画（m.kanman.com）：搜索与 10 个分类走 /api/getsortlist/ JSON 接口；章节图在阅读页内联 chapter_img_list（auth_key 约 1 小时）。",
-      "tags": [
-        "漫画",
-        "JSON接口"
-      ],
-      "version": "1.0.0",
-      "updatedAt": "2026-11-04",
-      "featured": true
-    },
-    "Zymk": {
-      "title": "知音漫客",
-      "desc": "知音漫客（m.zymk.cn）：搜索与 12 个分类走 /apinew/getsortlist_new 接口；章节图按 start_var/end_var 拼 mhpic 地址。",
-      "tags": [
-        "漫画",
-        "JSON接口"
-      ],
-      "version": "1.0.0",
-      "updatedAt": "2026-11-04",
-      "featured": true
     }
   }
 }
