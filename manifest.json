@@ -1,12 +1,13 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "ac19ddb23c51a389",
-  "generatedAt": "2026-11-04T04:40:20Z",
-  "count": 6,
-  "totalSize": 16502,
+  "libraryHash": "5a526095d5b0a929",
+  "generatedAt": "2026-11-04T05:49:11Z",
+  "count": 7,
+  "totalSize": 18438,
   "groups": [
-    "未分组"
+    "未分组",
+    "笔趣阁"
   ],
   "sources": [
     {
@@ -44,16 +45,32 @@
       "featured": true
     },
     {
+      "id": "Xbiquge345",
+      "name": "笔趣阁345",
+      "title": "笔趣阁345",
+      "desc": "笔趣阁(xbiquge345.com)：搜索走 POST；详情页自带完整目录；正文首行站点水印已净化。",
+      "group": "笔趣阁",
+      "tags": [
+        "笔趣阁",
+        "搜索可用"
+      ],
+      "site": "xbiquge345.com",
+      "url": "https://www.xbiquge345.com",
+      "path": "sources/Xbiquge345.json",
+      "hash": "8e8288daf2a0dcf3",
+      "version": "1.0.0",
+      "size": 1936,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
       "id": "Vjungle",
       "name": "4399小说",
       "title": "4399小说",
-      "desc": "4399小说（vjungle.com）：发现/搜索/详情/正文齐全；GBK 编码，搜索走 POST，站点限制两次搜索间隔 30 秒；目录与详情同页。",
+      "desc": "4399小说（vjungle.com）：GBK 站点，搜索走 POST；站点限制两次搜索间隔 30 秒；目录与详情同页。",
       "group": "未分组",
-      "tags": [
-        "4399",
-        "GBK",
-        "搜索限流"
-      ],
+      "tags": [],
       "site": "vjungle.com",
       "url": "https://www.vjungle.com",
       "path": "sources/Vjungle.json",

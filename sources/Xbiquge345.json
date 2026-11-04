@@ -1,0 +1,46 @@
+{
+  "bookSourceComment": "笔趣阁(xbiquge345.com)：搜索走 POST（type=articlename&s=关键词）；详情页自带完整目录；正文在 #txt，首行有站点水印需净化。",
+  "bookSourceGroup": "笔趣阁",
+  "bookSourceName": "笔趣阁345",
+  "bookSourceType": 0,
+  "bookSourceUrl": "https://www.xbiquge345.com",
+  "bookSourceCharset": "utf-8",
+  "customOrder": 0,
+  "enabled": true,
+  "header": "",
+  "searchUrl": "/s.php,{\"method\":\"POST\",\"body\":\"type=articlename&s={{key}}\"}",
+  "exploreUrl": "玄幻::https://www.xbiquge345.com/sort/1_1/\n仙侠::https://www.xbiquge345.com/sort/2_1/\n都市::https://www.xbiquge345.com/sort/3_1/\n网游::https://www.xbiquge345.com/sort/4_1/\n科幻::https://www.xbiquge345.com/sort/5_1/\n恐怖::https://www.xbiquge345.com/sort/6_1/\n历史::https://www.xbiquge345.com/sort/7_1/\n其他::https://www.xbiquge345.com/sort/8_1/",
+  "ruleSearch": {
+    "bookList": "@css:ul.search li:not(.fen)",
+    "name": "span.name a@text",
+    "author": "span.zuo a@text",
+    "bookUrl": "span.name a@href",
+    "lastChapter": "span.jie a@text",
+    "kind": "span.lei a@text",
+    "updateTime": "span.time@text"
+  },
+  "ruleExplore": {
+    "bookList": "@css:ul.wanben li",
+    "name": "h3.p2 a@text",
+    "author": "@XPath:./div[@class='p1']/@data-author",
+    "bookUrl": "h3.p2 a@href",
+    "coverUrl": "p.p1 img@src"
+  },
+  "ruleBookInfo": {
+    "name": "h1@text",
+    "author": "@XPath://span[@class='x1'][1]/a/text()",
+    "coverUrl": ".zhutu img@src",
+    "kind": "@css:span.x1:nth-of-type(2)@text##类型：##",
+    "lastChapter": "@XPath://span[@class='x2'][2]/a/text()",
+    "updateTime": "@css:span.x2@text##更新时间：##",
+    "intro": "@css:div.x3@text##简介：##"
+  },
+  "ruleToc": {
+    "chapterList": "ul.info li a",
+    "chapterName": "@text",
+    "chapterUrl": "@href"
+  },
+  "ruleContent": {
+    "content": "@css:#txt@html##<p[^>]*>一秒记住[^<]*</p>## ##"
+  }
+}
