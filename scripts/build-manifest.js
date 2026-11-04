@@ -224,8 +224,15 @@ function main() {
   const json = JSON.stringify(manifest, null, 2) + '\n';
 
   if (CHECK_ONLY) {
-    const current = fs.existsSync(MANIFEST) ? fs.readFileSync(MANIFEST, 'utf8') : '';
-    if (current !== json) {
+    // 只比内容，不比生成时间：generatedAt 每次都会变，拿它比永远不相等
+    const stable = function (m) {
+      const copyM = Object.assign({}, m);
+      delete copyM.generatedAt;
+      return canonical(copyM);
+    };
+    let current = null;
+    try { current = readJson(MANIFEST); } catch (e) { current = null; }
+    if (!current || stable(current) !== stable(manifest)) {
       console.error('manifest.json 与 sources/ 不一致，请重新跑 node scripts/build-manifest.js');
       process.exit(1);
     }
