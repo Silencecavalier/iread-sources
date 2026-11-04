@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "8790ed2890a5ad8e",
-  "generatedAt": "2026-11-04T02:52:33Z",
-  "count": 5,
-  "totalSize": 12691,
+  "libraryHash": "4a108e27a780c24c",
+  "generatedAt": "2026-11-04T04:21:08Z",
+  "count": 6,
+  "totalSize": 15618,
   "groups": [
     "未分组"
   ],
@@ -94,6 +94,23 @@
       "hash": "8bc7f2a367bd8cfe",
       "version": "1.0.0",
       "size": 2112,
+      "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
+      "id": "Vjungle",
+      "name": "Vjungle",
+      "title": "Vjungle",
+      "desc": "",
+      "group": "未分组",
+      "tags": [],
+      "site": "vjungle.com",
+      "url": "https://www.vjungle.com",
+      "path": "sources/Vjungle.json",
+      "hash": "2a59afb80efb2e53",
+      "version": "1.0.0",
+      "size": 2927,
       "updatedAt": "2026-11-04",
       "minAppVersion": "1.0.0",
       "featured": false

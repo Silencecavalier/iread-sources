@@ -14,7 +14,17 @@ const SOURCES_DIR = path.join(REPO, 'sources');
 const CATALOG = path.join(REPO, 'catalog.json');
 const MANIFEST = path.join(REPO, 'manifest.json');
 const PORT = Number(process.env.PORT || 8131);
-const TOKEN = crypto.randomBytes(9).toString('hex');
+/* 令牌持久化：换一次重启后地址不变，免得每次都要重新点桌面快捷方式 */
+const TOKEN_FILE = path.join(ADMIN_DIR, '.token');
+const TOKEN = (function () {
+  try {
+    const t = fs.readFileSync(TOKEN_FILE, 'utf8').trim();
+    if (/^[0-9a-f]{18}$/.test(t)) return t;
+  } catch (e) { /* 首次运行还没有 */ }
+  const t = crypto.randomBytes(9).toString('hex');
+  try { fs.writeFileSync(TOKEN_FILE, t, 'utf8'); } catch (e) { /* 只读目录时退化成内存令牌 */ }
+  return t;
+})();
 
 /* ---------- 小工具 ---------- */
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
