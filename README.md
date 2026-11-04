@@ -8,6 +8,16 @@ iread 的书源库（GitHub Pages 静态站）。只放**规则文件**：不放
 
 ---
 
+## 线上地址（已部署）
+
+- 浏览页：https://silencecavalier.github.io/iread-sources/
+- 清单（推荐，jsDelivr）：https://cdn.jsdelivr.net/gh/Silencecavalier/iread-sources@main/manifest.json
+- 清单（Pages 直连）：https://silencecavalier.github.io/iread-sources/manifest.json
+
+iread 的「内置书源」插件 v1.1.1 起，默认就用上面第一条清单地址，装上插件即可看到这里的全部书源。
+
+---
+
 ## 一、加一个书源（三步）
 
 1. 把书源 JSON 丢进 `sources/`，文件名就是它的 id，例如 `sources/my-site.json`
