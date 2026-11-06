@@ -1,0 +1,42 @@
+[
+  {
+    "bookSourceName": "Temao",
+    "timeout": 30000,
+    "bookSourceUrl": "https://www.xiaomitemai.com",
+    "bookSourceType": 0,
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledSearch": false,
+    "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36\",\"Referer\":\"https://www.xiaomitemai.com/\",\"Accept-Language\":\"zh-CN,zh;q=0.9\"}",
+    "searchUrl": "",
+    "exploreUrl": "玄幻小说::/fenlei/1/{{page}}/\n仙侠小说::/fenlei/2/{{page}}/\n都市小说::/fenlei/3/{{page}}/\n历史军事::/fenlei/4/{{page}}/\n游戏竞技::/fenlei/5/{{page}}/\n科幻小说::/fenlei/6/{{page}}/\n恐怖小说::/fenlei/7/{{page}}/\n其他类型::/fenlei/8/{{page}}/",
+    "ruleSearch": {},
+    "ruleExplore": {
+      "bookList": "@CSS:ul.list-1 li",
+      "name": "h3.name@text",
+      "bookUrl": "a.info@href",
+      "author": "p.author@text",
+      "intro": "div.desc@text",
+      "coverUrl": "img@data-original",
+      "lastChapter": ""
+    },
+    "ruleBookInfo": {
+      "name": "h2.name@text",
+      "author": "p.author a@text",
+      "coverUrl": "@CSS:div.img img@data-original",
+      "intro": "div.book-intro@text",
+      "lastChapter": "",
+      "tocUrl": ""
+    },
+    "ruleToc": {
+      "chapterList": "@CSS:#main ul.list li a||#main ul li a",
+      "chapterName": "@text",
+      "chapterUrl": "@href",
+      "nextTocUrl": "@js:var h = String((result && result.outerHTML) || result || '');var q = String.fromCharCode(34);function pick(mark) {  var i = h.indexOf(mark);  if (i < 0) return '';  var seg = h.slice(Math.max(0, i - 400), i);  var j = seg.lastIndexOf('href=' + q);  if (j < 0) return '';  var k = seg.indexOf(q, j + 6);  return k < 0 ? '' : seg.slice(j + 6, k);}var r = pick('>下一页<');if (!r) r = pick('>章节目录<');if (!r) r = pick('>查看更多章节<');result = r;"
+    },
+    "ruleContent": {
+      "content": "@CSS:div.content",
+      "nextContentUrl": ""
+    }
+  }
+]
