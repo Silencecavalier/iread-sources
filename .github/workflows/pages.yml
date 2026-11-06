@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,6 +27,18 @@ jobs:
 
       - name: 校验 sources/ 并重新生成清单
         run: node scripts/build-manifest.js
+       
+      - name: 把清单提交回仓库（让 raw 地址也保持最新）
+        run: |
+          if git diff --quiet -- manifest.json; then
+            echo "清单无变化，跳过"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.json
+          git commit -m "chore: 自动重新生成清单"
+          git push      
 
       - name: 清单与仓库里提交的不一致（只在 PR 上提醒，不拦合并）
         if: github.event_name == 'pull_request'
