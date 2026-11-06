@@ -2,7 +2,7 @@
   "schema": 1,
   "name": "iread 书源库",
   "libraryHash": "921b85ea46112d38",
-  "generatedAt": "2026-11-06T05:32:46Z",
+  "generatedAt": "2026-11-06T05:34:24Z",
   "count": 8,
   "totalSize": 21274,
   "groups": [
@@ -150,9 +150,9 @@
       "url": "https://www.naibawu.com",
       "path": "sources/NanRead.json",
       "hash": "ba3cddf4bdc46c96",
-      "version": "ba3cddf4",
+      "version": "1.0.0",
       "size": 2843,
-      "updatedAt": null,
+      "updatedAt": "2026-11-06",
       "minAppVersion": "1.0.0",
       "featured": false
     }
