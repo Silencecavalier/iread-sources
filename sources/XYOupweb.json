@@ -1,0 +1,51 @@
+[
+  {
+    "bookSourceName": "XYOupweb",
+    "bookSourceUrl": "https://www.xiuyoupu.com",
+    "timeout": 30000,
+    "bookSourceType": 0,
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledSearch": true,
+    "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36\",\"Referer\":\"https://www.xiuyoupu.com/\",\"Accept-Language\":\"zh-CN,zh;q=0.9\"}",
+    "searchUrl": "/findbook.html,{\"method\":\"POST\",\"body\":\"s={{key}}\",\"headers\":{\"Content-Type\":\"application/x-www-form-urlencoded\"}}",
+    "exploreUrl": "玄幻修真::/flx/1/{{page}}.html\n重生穿越::/flx/2/{{page}}.html\n都市小说::/flx/3/{{page}}.html\n军史小说::/flx/4/{{page}}.html\n网游小说::/flx/5/{{page}}.html\n科幻小说::/flx/6/{{page}}.html\n灵异小说::/flx/7/{{page}}.html\n其他小说::/flx/8/{{page}}.html",
+    "ruleSearch": {
+      "bookList": "@js:var h = String((result && result.outerHTML) || result || '');var out = [], seen = {};function stripTags(x) { return String(x).replace(new RegExp('<[^>]+>', 'g'), '').trim(); }function add(path, title, author) {  title = stripTags(title);  if (!path || !title) return;  if (seen[path]) return;  seen[path] = 1;  var d = document.createElement('div');  d.innerHTML = '<span class=\"nbk-t\"><a href=\"/jiyi/' + path + '\">' + title + '</a></span>'    + (author ? '<span class=\"nbk-a\">' + stripTags(author) + '</span>' : '');  out.push(d.firstChild);}var KP = 'href=\"/jiyi/';function scan(marker, cap) {  var i = 0;  while (true) {    var a = h.indexOf(marker, i);    if (a < 0) return;    if (cap && out.length >= cap) return;    var p = h.indexOf(KP, a);    if (p < 0) return;    var b = h.indexOf('\"', p + KP.length);    if (b < 0) return;    var path = h.slice(p + KP.length, b);    var gt = h.indexOf('>', b);    var e = h.indexOf('</a>', gt);    if (gt < 0 || e < 0) return;    var before = h.slice(Math.max(0, a - 160), a);    var isRec = before.indexOf('<dt') >= 0 || before.indexOf('<h2') >= 0;    if (!isRec) add(path, h.slice(gt + 1, e), '');    i = e;  }}if (h.indexOf('class=\"s2\"') >= 0) scan('class=\"s2\"', 0);if (!out.length && h.indexOf('class=\"werd1\"') >= 0) scan('class=\"werd1\"', 0);if (!out.length) scan(KP, 40);result = out;",
+      "name": "span.nbk-t a@text",
+      "bookUrl": "span.nbk-t a@href",
+      "author": "span.nbk-a@text",
+      "intro": "",
+      "coverUrl": "",
+      "lastChapter": ""
+    },
+    "ruleExplore": {
+      "bookList": "@js:var h = String((result && result.outerHTML) || result || '');var out = [], seen = {};function stripTags(x) { return String(x).replace(new RegExp('<[^>]+>', 'g'), '').trim(); }function add(path, title, author) {  title = stripTags(title);  if (!path || !title) return;  if (seen[path]) return;  seen[path] = 1;  var d = document.createElement('div');  d.innerHTML = '<span class=\"nbk-t\"><a href=\"/jiyi/' + path + '\">' + title + '</a></span>'    + (author ? '<span class=\"nbk-a\">' + stripTags(author) + '</span>' : '');  out.push(d.firstChild);}var KP = 'href=\"/jiyi/';function scan(marker, cap) {  var i = 0;  while (true) {    var a = h.indexOf(marker, i);    if (a < 0) return;    if (cap && out.length >= cap) return;    var p = h.indexOf(KP, a);    if (p < 0) return;    var b = h.indexOf('\"', p + KP.length);    if (b < 0) return;    var path = h.slice(p + KP.length, b);    var gt = h.indexOf('>', b);    var e = h.indexOf('</a>', gt);    if (gt < 0 || e < 0) return;    var before = h.slice(Math.max(0, a - 160), a);    var isRec = before.indexOf('<dt') >= 0 || before.indexOf('<h2') >= 0;    if (!isRec) add(path, h.slice(gt + 1, e), '');    i = e;  }}if (h.indexOf('class=\"s2\"') >= 0) scan('class=\"s2\"', 0);if (!out.length && h.indexOf('class=\"werd1\"') >= 0) scan('class=\"werd1\"', 0);if (!out.length) scan(KP, 40);result = out;",
+      "name": "span.nbk-t a@text",
+      "bookUrl": "span.nbk-t a@href",
+      "author": "span.nbk-a@text",
+      "kind": "",
+      "intro": "",
+      "lastChapter": "",
+      "coverUrl": ""
+    },
+    "ruleBookInfo": {
+      "name": "h1@text",
+      "author": "span.pikaeh@text## 著##",
+      "coverUrl": "img[alt].0@src",
+      "intro": "meta[name=description]@content",
+      "lastChapter": "p.ye07t@text##最近更新：##",
+      "tocUrl": ""
+    },
+    "ruleToc": {
+      "chapterList": "@XPath://ul[count(li) > 20]/li/a",
+      "chapterName": "@text",
+      "chapterUrl": "@href",
+      "nextTocUrl": "@js:var h = String((result && result.outerHTML) || result || '');var q = String.fromCharCode(34);function pick(mark) {  var i = h.indexOf(mark);  if (i < 0) return '';  var seg = h.slice(Math.max(0, i - 400), i);  var j = seg.lastIndexOf('href=' + q);  if (j < 0) return '';  var k = seg.indexOf(q, j + 6);  return k < 0 ? '' : seg.slice(j + 6, k);}var r = pick('>下一页<');if (!r) r = pick('>章节目录<');if (!r) r = pick('>查看更多章节<');result = r;"
+    },
+    "ruleContent": {
+      "content": "@js:var h=String(result);var key=\"qsbs.bb('\";var out=''; var idx=0;while(true){  var a=h.indexOf(key,idx); if(a<0)break;  var b=h.indexOf(\"')\",a+key.length); if(b<0)break;  try{ out+=java.base64Decode(h.slice(a+key.length,b)); }catch(e){}  idx=b+2;}result=out;",
+      "nextContentUrl": "@js:var q=String.fromCharCode(34);var h=String(result&&result.outerHTML?result.outerHTML:result);var i=h.indexOf('下一章');var r='';if(i>=0){  var s=h.slice(Math.max(0,i-400),i);  var j=s.lastIndexOf('href='+q);  if(j>=0){ var k=s.indexOf(q,j+6); r=k<0?'':s.slice(j+6,k); }}result=r;"
+    }
+  }
+]
