@@ -49,6 +49,11 @@
       "version": "1.0.0",
       "updatedAt": "2026-11-04",
       "group": "笔趣阁"
+    },
+    "NanRead": {
+      "title": "NanRead",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-06"
     }
   }
 }
