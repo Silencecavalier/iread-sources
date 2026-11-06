@@ -1,0 +1,40 @@
+[
+  {
+    "bookSourceName": "NanRead",
+    "bookSourceGroup": "自建",
+    "bookSourceUrl": "https://www.naibawu.com",
+    "bookSourceType": 0,
+    "bookSourceComment": "宁安看书（naibawu.com）。站点没有搜索接口，只能从「发现」按分类浏览；正文为 base64 分块，由 JS 规则解码。",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledSearch": false,
+    "header": "User-Agent:Mozilla/5.0 (Linux; Android 14; realme GT7 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36\nReferer:https://www.naibawu.com/",
+    "exploreUrl": "玄幻魔法::/bktype/1/{{page}}.html\n武侠修真::/bktype/2/{{page}}.html\n都市言情::/bktype/3/{{page}}.html\n历史军事::/bktype/4/{{page}}.html\n科幻灵异::/bktype/5/{{page}}.html\n游戏竞技::/bktype/6/{{page}}.html",
+    "ruleExplore": {
+      "bookList": "@CSS:ul li",
+      "name": "span.s2 a@text",
+      "bookUrl": "span.s2 a@href",
+      "author": "span.s4@text||span.s5@text",
+      "kind": "span.s1@text",
+      "lastChapter": "span.s3 a@text"
+    },
+    "ruleBookInfo": {
+      "name": "h1@text",
+      "author": "a[href^=\"/bookauthor/\"]@text",
+      "coverUrl": "@CSS:article img[src^=\"/iv-\"]@src",
+      "intro": "article > div:nth-of-type(2) > div:nth-of-type(4)@text",
+      "lastChapter": "a[rel=\"chapter\"]@title",
+      "tocUrl": ""
+    },
+    "ruleToc": {
+      "chapterList": "@CSS:dl:nth-of-type(2) dd a[rel=chapter]||dl:nth-of-type(1) dd a[rel=chapter]",
+      "chapterName": "@text",
+      "chapterUrl": "@href",
+      "nextTocUrl": "@js:var h = String(result && result.outerHTML ? result.outerHTML : result);\nvar q = String.fromCharCode(34);\nfunction pick(marker) {\n  var a = h.indexOf(marker);\n  if (a < 0) return '';\n  var seg = h.slice(Math.max(0, a - 240), a);\n  var j = seg.lastIndexOf('href=' + q);\n  if (j < 0) return '';\n  var k = seg.indexOf(q, j + 6);\n  return k < 0 ? '' : seg.slice(j + 6, k);\n}\nvar r = pick('>下一页<');\nif (!r) r = pick('>章节目录<');\nresult = r;"
+    },
+    "ruleContent": {
+      "content": "@js:var h = String(result);\nvar key = \"qsbs.bb('\";\nvar out = ''; var idx = 0;\nwhile (true) {\n  var a = h.indexOf(key, idx);\n  if (a < 0) break;\n  var b = h.indexOf(\"')\", a + key.length);\n  if (b < 0) break;\n  try { out += java.base64Decode(h.slice(a + key.length, b)); } catch (e) {}\n  idx = b + 2;\n}\nresult = out;",
+      "nextContentUrl": "@js:var q = String.fromCharCode(34);\nvar h = String(result && result.outerHTML ? result.outerHTML : result);\nvar r = '';\nvar a = h.indexOf('>下一章<');\nif (a >= 0) { var seg = h.slice(Math.max(0, a - 300), a); var j = seg.lastIndexOf('href=' + q); if (j >= 0) { var k = seg.indexOf(q, j + 6); if (k > 0) r = seg.slice(j + 6, k); } }\nif (!r) { var u = String(baseUrl || ''); if (!/_[0-9]+.html/.test(u)) r = u.replace(/.html$/, '_1.html'); }\nresult = r;"
+    }
+  }
+]
