@@ -1,13 +1,14 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "214e7750253e1dee",
-  "generatedAt": "2026-11-04T10:15:09Z",
-  "count": 7,
-  "totalSize": 18431,
+  "libraryHash": "921b85ea46112d38",
+  "generatedAt": "2026-11-06T05:25:14Z",
+  "count": 8,
+  "totalSize": 21274,
   "groups": [
     "未分组",
-    "笔趣阁"
+    "笔趣阁",
+    "自建"
   ],
   "sources": [
     {
@@ -133,6 +134,25 @@
       "version": "1.0.1",
       "size": 3808,
       "updatedAt": "2026-11-04",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
+      "id": "NanRead",
+      "name": "NanRead",
+      "title": "NanRead",
+      "desc": "宁安看书（naibawu.com）。站点没有搜索接口，只能从「发现」按分类浏览；正文为 base64 分块，由 JS 规则解码。",
+      "group": "自建",
+      "tags": [
+        "自建"
+      ],
+      "site": "naibawu.com",
+      "url": "https://www.naibawu.com",
+      "path": "sources/NanRead.json",
+      "hash": "ba3cddf4bdc46c96",
+      "version": "ba3cddf4",
+      "size": 2843,
+      "updatedAt": null,
       "minAppVersion": "1.0.0",
       "featured": false
     }
