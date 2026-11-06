@@ -1,0 +1,50 @@
+[
+  {
+    "bookSourceName": "Wahaibook",
+    "bookSourceUrl": "https://book.washai.net",
+    "timeout": 30000,
+    "bookSourceType": 0,
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledSearch": true,
+    "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36\",\"Referer\":\"https://book.washai.net/\",\"Accept-Language\":\"zh-CN,zh;q=0.9\"}",
+    "searchUrl": "/book/bookclass.html?k={{key}}",
+    "exploreUrl": "玄幻奇幻::/book/bookclass.html?c=1&page={{page}}\n武侠仙侠::/book/bookclass.html?c=2&page={{page}}\n都市言情::/book/bookclass.html?c=3&page={{page}}\n历史军事::/book/bookclass.html?c=4&page={{page}}\n科幻灵异::/book/bookclass.html?c=5&page={{page}}\n网游竞技::/book/bookclass.html?c=6&page={{page}}\n女生频道::/book/bookclass.html?c=7&page={{page}}\n次元同人::/book/bookclass.html?c=8&page={{page}}",
+    "ruleSearch": {
+      "bookList": "@CSS:article.classBookCard",
+      "name": "h3.classBookTitle a@text",
+      "bookUrl": "h3.classBookTitle a@href",
+      "author": "p.classBookAuthor a@text",
+      "intro": "p.classBookDesc@text",
+      "coverUrl": "span.classBookCover img@src",
+      "lastChapter": "p.classBookChapter a@text"
+    },
+    "ruleExplore": {
+      "bookList": "@CSS:article.classBookCard",
+      "name": "h3.classBookTitle a@text",
+      "bookUrl": "h3.classBookTitle a@href",
+      "author": "p.classBookAuthor a@text",
+      "intro": "p.classBookDesc@text",
+      "coverUrl": "span.classBookCover img@src",
+      "lastChapter": "p.classBookChapter a@text"
+    },
+    "ruleBookInfo": {
+      "name": "h1#bookName@text",
+      "author": "#bookAuthor@text",
+      "coverUrl": "@CSS:img[src^=\"/localPic/\"]@src",
+      "intro": "#bookDesc@text",
+      "lastChapter": "",
+      "tocUrl": "a[href^=\"/book/indexList-\"]@href"
+    },
+    "ruleToc": {
+      "chapterList": "@CSS:div.dirList ul li a",
+      "chapterName": "@ownText",
+      "chapterUrl": "@href",
+      "nextTocUrl": "@js:var h = String((result && result.outerHTML) || result || '');var q = String.fromCharCode(34);function pick(mark) {  var i = h.indexOf(mark);  if (i < 0) return '';  var seg = h.slice(Math.max(0, i - 400), i);  var j = seg.lastIndexOf('href=' + q);  if (j < 0) return '';  var k = seg.indexOf(q, j + 6);  return k < 0 ? '' : seg.slice(j + 6, k);}var r = pick('>下一页<');if (!r) r = pick('>章节目录<');if (!r) r = pick('>查看更多章节<');result = r;"
+    },
+    "ruleContent": {
+      "content": "@CSS:div.readChapterAppendBody",
+      "nextContentUrl": ""
+    }
+  }
+]
