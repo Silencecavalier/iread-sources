@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "name": "iread 书源库",
-  "libraryHash": "be86d1c24d48a6d1",
-  "generatedAt": "2026-11-08T03:16:07Z",
-  "count": 16,
-  "totalSize": 40902,
+  "libraryHash": "8508337d4e4f57dd",
+  "generatedAt": "2026-11-08T05:05:16Z",
+  "count": 17,
+  "totalSize": 42675,
   "groups": [
     "未分组",
     "笔趣阁",
@@ -270,6 +270,23 @@
       "version": "1.0.0",
       "size": 5493,
       "updatedAt": "2026-11-06",
+      "minAppVersion": "1.0.0",
+      "featured": false
+    },
+    {
+      "id": "Yuemeng888",
+      "name": "Yuemeng888",
+      "title": "Yuemeng888",
+      "desc": "手写源",
+      "group": "未分组",
+      "tags": [],
+      "site": "yuemeng888.com",
+      "url": "http://www.yuemeng888.com/",
+      "path": "sources/Yuemeng888.json",
+      "hash": "2e8e016ff765ab41",
+      "version": "1.0.0",
+      "size": 1773,
+      "updatedAt": "2026-11-08",
       "minAppVersion": "1.0.0",
       "featured": false
     },
