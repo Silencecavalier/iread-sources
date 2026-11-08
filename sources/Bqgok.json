@@ -1,0 +1,38 @@
+{
+  "bookSourceName": "Bqgok",
+  "bookSourceUrl": "https://m.bqgok.net",
+  "bookSourceType": 0,
+  "enabled": true,
+  "enabledExplore": false,
+  "searchUrl": "/search/?searchkey={{key}}",
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13; RMX3700) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36\",\"Referer\":\"https://m.bqgok.net/\"}",
+  "timeout": 20000,
+  "ruleSearch": {
+    "bookList": "div.rank dl",
+    "name": "dt a@text",
+    "bookUrl": "dt a@href",
+    "author": "dd a@text",
+    "kind": "dd span@text",
+    "intro": "dd.0@text<js>var t=String(result||'');t=t.split(String.fromCharCode(92)+'n').join(String.fromCharCode(10));t;</js>",
+    "coverUrl": "a.cover img@data-original<js>var u=String(result||'');if(u.indexOf('nocover')>=0){u='';}else if(u&&u.indexOf('http')!==0){u='https://m.bqgok.net'+u;}u;</js>"
+  },
+  "ruleBookInfo": {
+    "name": "h1@text",
+    "author": "p.book-meta a[href^=\"/author/\"]@text",
+    "coverUrl": "img.book-cover@src",
+    "intro": "div.bookintro@text<js>var t=String(result||'');t=t.split(String.fromCharCode(92)+'n').join(String.fromCharCode(10));t;</js>",
+    "tocUrl": "a[href^=\"/index/\"].0@href",
+    "lastChapter": "a[href^=\"/read/\"].0@text"
+  },
+  "ruleToc": {
+    "chapterList": "ul.mt0 li a",
+    "chapterName": "@text",
+    "chapterUrl": "@href",
+    "nextTocUrl": "@XPath://a[contains(@class,'index-container-btn')][contains(text(),'下一页')]/@href"
+  },
+  "ruleContent": {
+    "content": "#booktxt@html<js>var s=String(result||'');var SP=String.fromCharCode(32),NB=String.fromCharCode(160),ID=String.fromCharCode(12288),TB=String.fromCharCode(9),LF=String.fromCharCode(10),CR=String.fromCharCode(13);var segs=s.split('<p>');if(segs.length>1){segs.shift();}var out=[];for(var i=0;i<segs.length;i++){var t=segs[i].replace(/<[^>]*>/g,SP);t=t.split('&nbsp;').join(SP).split(NB).join(SP).split(ID).join(SP).split(TB).join(SP).split(LF).join(SP).split(CR).join(SP);var r='',prev=false;for(var j=0;j<t.length;j++){var c=t.charAt(j);if(c===SP){if(!prev){r+=SP;}prev=true;}else{r+=c;prev=false;}}while(r.charAt(0)===SP){r=r.substring(1);}while(r.length&&r.charAt(r.length-1)===SP){r=r.substring(0,r.length-1);}if(!r){continue;}if(r.indexOf('天才一秒记住')>=0){continue;}if(r.indexOf('本章未完')>=0){continue;}if(r.indexOf('页')>=0&&r.indexOf('/')>=0&&(r.indexOf('(')>=0||r.indexOf('（')>=0)){continue;}var cjk=false;for(var k=0;k<r.length;k++){var cc=r.charCodeAt(k);if(cc>=19968&&cc<=40869){cjk=true;break;}}if(!cjk&&r.length<80&&r.split(SP).join('').toLowerCase().indexOf('net')>=0){continue;}out.push(r);}out.join(LF);</js>",
+    "nextContentUrl": "@XPath://a[@id='next_url'][contains(text(),'下一页')]/@href"
+  },
+  "bookSourceComment": "手写源"
+}
