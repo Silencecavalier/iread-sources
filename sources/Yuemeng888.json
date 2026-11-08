@@ -1,0 +1,30 @@
+﻿{
+    "bookSourceUrl":  "http://www.yuemeng888.com/",
+    "bookSourceName":  "Yuemeng888",
+    "bookSourceGroup":  "",
+    "bookSourceType":  0,
+    "enabled":  true,
+    "enabledExplore":  false,
+    "header":  "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36\"}",
+    "timeout":  15000,
+    "bookSourceComment":  "手写源",
+    "ruleSearch":  {
+
+                   },
+    "ruleBookInfo":  {
+                         "name":  "@CSS:div.booktitle h1@text##笔趣阁无弹窗$##",
+                         "author":  "@CSS:div.booktitle h2 a@text",
+                         "intro":  "@CSS:div.bookintro@text##^小说简介：##",
+                         "coverUrl":  "@CSS:div.cover img@src",
+                         "lastChapter":  "div.bookdes a[rel=chapter]@text"
+                     },
+    "ruleToc":  {
+                    "chapterList":  "@CSS:div.all ul li a||ul.chapterlist-index li a",
+                    "chapterName":  "@text",
+                    "chapterUrl":  "@href",
+                    "nextTocUrl":  "@js:var h = String((result \u0026\u0026 result.outerHTML) || result || \u0027\u0027);var q = String.fromCharCode(34);if(h.indexOf(\u0027class=\"all\"\u0027)\u003e=0||h.indexOf(\u0027class=all\u0027)\u003e=0){r=\u0027/penxunzx/cqjmg/mulu_1.html\u0027}else{function pick(mark) {  var i = h.indexOf(mark);  if (i \u003c 0) return \u0027\u0027;  var seg = h.slice(Math.max(0, i - 400), i);  var j = seg.lastIndexOf(\u0027href=\u0027 + q);  if (j \u003c 0) return \u0027\u0027;  var k = seg.indexOf(q, j + 6);  return k \u003c 0 ? \u0027\u0027 : seg.slice(j + 6, k);}  r = pick(\u0027\u003e下一页\u003c\u0027);  if (r \u0026\u0026 r.indexOf(\u0027mulu_5\u0027) \u003e= 0) r = \u0027\u0027;}result = r;"
+                },
+    "ruleContent":  {
+                        "content":  "\u003cjs\u003evar html=String(result);var out=\u0027\u0027;var key=\"qsbs.bb(\u0027\";var a=0;while(true){a=html.indexOf(key,a);if(a\u003c0)break;var b=html.indexOf(\"\u0027)\",a+key.length);if(b\u003c0)break;var b64=html.substring(a+key.length,b);a=b+2;try{out+=java.base64Decode(b64);}catch(e){}}out.replace(/\u003c[^\u003e]+\u003e/g,\u0027\\n\u0027).replace(/\\n{2,}/g,\u0027\\n\u0027).replace(/^\\s+|\\s+$/g,\u0027\u0027)\u003c/js\u003e"
+                    }
+}
