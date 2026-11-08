@@ -1,0 +1,43 @@
+{
+  "bookSourceName": "BiquG-432",
+  "bookSourceComment": "手写源",
+  "bookSourceUrl": "https://www.biquge432.com",
+  "bookSourceType": 0,
+  "bookSourceCharset": "utf-8",
+  "enabled": true,
+  "timeout": 20000,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\",\"Referer\":\"https://www.biquge432.com/\"}",
+  "searchUrl": "https://www.biquge432.com/s.php,{\"method\":\"POST\",\"body\":\"s={{key}}&submit=\",\"headers\":{\"Content-Type\":\"application/x-www-form-urlencoded\"}}",
+  "exploreUrl": "玄幻魔法::/sort/1_{{page}}/\n仙侠修真::/sort/2_{{page}}/\n都市言情::/sort/3_{{page}}/\n网游动漫::/sort/4_{{page}}/\n科幻小说::/sort/5_{{page}}/\n恐怖灵异::/sort/6_{{page}}/\n历史军事::/sort/7_{{page}}/\n其他小说::/sort/8_{{page}}/\n全本小说::/sort/9_{{page}}/",
+  "ruleSearch": {
+    "bookList": "div.lastupdate ul li",
+    "name": "span.name a@text",
+    "bookUrl": "span.name a@href",
+    "author": "span.zuo a@text",
+    "kind": "span.lei a@text",
+    "lastChapter": "span.jie a@text"
+  },
+  "ruleExplore": {
+    "bookList": "div.lastupdate ul li",
+    "name": "span.name a@text",
+    "bookUrl": "span.name a@href",
+    "author": "span.zuo a@text",
+    "lastChapter": "span.jie a@text"
+  },
+  "ruleBookInfo": {
+    "name": "h1@ownText##\\s+$##",
+    "author": "h1 span@text##\\s*著\\s*$##",
+    "coverUrl": "div.border_left img@src",
+    "intro": "div.hang_3@text",
+    "tocUrl": "",
+    "lastChapter": "ul.fen_4 li:last-child a@text"
+  },
+  "ruleToc": {
+    "chapterList": "ul.fen_4 li a",
+    "chapterName": "@text",
+    "chapterUrl": "@href"
+  },
+  "ruleContent": {
+    "content": "@CSS:#txt@html##<(?:p|a)[^>]*>一秒记住【顶点小说】[^]*?</(?:p|a)>|[(（]第[0-9]+/[0-9]+页[)）]|（本章未完，请点击下一页继续阅读）[^（(<]{0,60}?[(（]第[0-9]+/[0-9]+页[)）]|（本章未完，请点击下一页继续阅读）第[0-9]+章[^！？!?<]{0,40}?[！？!?]+|（本章未完，请点击下一页继续阅读）##"
+  }
+}
