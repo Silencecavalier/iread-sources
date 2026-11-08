@@ -69,6 +69,36 @@
       "title": "Temao",
       "version": "1.0.0",
       "updatedAt": "2026-11-06"
+    },
+    "Xcbiquge": {
+      "title": "XcBiquG",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-08",
+      "desc": "手写源"
+    },
+    "Bqgok": {
+      "title": "Bqgok",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-08",
+      "desc": "手写源"
+    },
+    "Dingdian100": {
+      "title": "Dingdian100",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-08",
+      "desc": "手写源"
+    },
+    "Biquge432": {
+      "title": "BiquG-432",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-08",
+      "desc": "手写源"
+    },
+    "Ttshu8": {
+      "title": "Ttshu8",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-08",
+      "desc": "手写源"
     }
   }
 }
