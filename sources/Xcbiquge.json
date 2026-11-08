@@ -1,0 +1,35 @@
+{
+  "bookSourceName": "XcBiquG",
+  "bookSourceUrl": "http://www.xcbiquge.cc",
+  "bookSourceType": 0,
+  "bookSourceComment": "手写源",
+  "enabled": true,
+  "enabledExplore": false,
+  "searchUrl": "/search7e.html,{\"method\":\"POST\",\"body\":\"searchkey={{key}}\",\"headers\":{\"Content-Type\":\"application/x-www-form-urlencoded\"}}",
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36\",\"Accept\":\"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\",\"Accept-Language\":\"zh-CN,zh;q=0.9\",\"Referer\":\"http://www.xcbiquge.cc/\"}",
+  "timeout": 20000,
+  "ruleSearch": {
+    "bookList": "div.category-div",
+    "name": "div.commend-title a h3@text",
+    "bookUrl": "div.commend-title a@href",
+    "author": "div.commend-title span@text",
+    "intro": "div.intro@text"
+  },
+  "ruleBookInfo": {
+    "name": "h1@text",
+    "author": "div.w100 a[href^=\"/author/\"].0@text##^[^：]*：##",
+    "lastChapter": "div.dispc a[href*=\"/read/\"].2@text##^[^：]*：##",
+    "intro": "div.info-main-intro@text",
+    "tocUrl": ""
+  },
+  "ruleToc": {
+    "chapterList": "@XPath://div[contains(@class,'info-chapters')][count(a)>20]/a",
+    "chapterName": "@text",
+    "chapterUrl": "@href",
+    "nextTocUrl": ""
+  },
+  "ruleContent": {
+    "content": "article#article@html",
+    "nextContentUrl": "a#next_url.0@href"
+  }
+}
