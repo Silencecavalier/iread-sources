@@ -1,0 +1,43 @@
+{
+  "bookSourceName": "Dingdian100",
+  "bookSourceComment": "手写源",
+  "bookSourceUrl": "https://www.dingdian100.com",
+  "bookSourceType": 0,
+  "bookSourceCharset": "utf-8",
+  "enabled": true,
+  "timeout": 20000,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36\",\"Referer\":\"https://www.dingdian100.com/\"}",
+  "searchUrl": "https://www.dingdian100.com/s.php,{\"method\":\"POST\",\"body\":\"type=articlename&s={{key}}&submit=\",\"headers\":{\"Content-Type\":\"application/x-www-form-urlencoded\"}}",
+  "exploreUrl": "玄幻魔法::/sort/1_{{page}}/\n仙侠修真::/sort/2_{{page}}/\n都市言情::/sort/3_{{page}}/\n网游动漫::/sort/4_{{page}}/\n科幻小说::/sort/5_{{page}}/\n恐怖灵异::/sort/6_{{page}}/\n历史军事::/sort/7_{{page}}/\n其他小说::/sort/8_{{page}}/",
+  "ruleSearch": {
+    "bookList": "ul.search li",
+    "name": "span.name a@text",
+    "bookUrl": "span.name a@href",
+    "author": "span.zuo a@text",
+    "kind": "span.lei a@text",
+    "lastChapter": "span.jie a@text"
+  },
+  "ruleExplore": {
+    "bookList": "ul.gengxin li",
+    "name": "span.name a@text",
+    "bookUrl": "span.name a@href",
+    "author": "span.zuo@text",
+    "lastChapter": "span.jie a@text"
+  },
+  "ruleBookInfo": {
+    "name": "h1@text",
+    "author": "span.x1 a@text",
+    "coverUrl": ".zhutu img@src",
+    "intro": ".x3@text##^简介[:：][ ]*|[ ]*--[^]{0,60}$##",
+    "lastChapter": ".x2 a@text",
+    "tocUrl": "a[href^=\"/newbook/\"]@href"
+  },
+  "ruleToc": {
+    "chapterList": "ul.info li a",
+    "chapterName": "@text",
+    "chapterUrl": "@href"
+  },
+  "ruleContent": {
+    "content": "@CSS:#txt@html##<(?:p|a)[^>]*>一秒记住【顶点小说】[^]*?</(?:p|a)>|[(（]第[0-9]+/[0-9]+页[)）]|（本章未完，请点击下一页继续阅读）[^（(<]{0,60}?[(（]第[0-9]+/[0-9]+页[)）]|（本章未完，请点击下一页继续阅读）第[0-9]+章[^！？!?<]{0,40}?[！？!?]+|（本章未完，请点击下一页继续阅读）##"
+  }
+}
