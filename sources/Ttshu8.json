@@ -1,0 +1,36 @@
+{
+  "bookSourceName": "Ttshu8",
+  "bookSourceUrl": "https://www.ttshu8.com",
+  "bookSourceType": 0,
+  "bookSourceCharset": "utf-8",
+  "enabled": true,
+  "header": "",
+  "timeout": 20000,
+  "exploreUrl": "玄幻魔法::/sort/1/{{page}}/\n武侠修真::/sort/2/{{page}}/\n都市言情::/sort/3/{{page}}/\n历史军事::/sort/4/{{page}}/\n侦探推理::/sort/5/{{page}}/\n网游动漫::/sort/6/{{page}}/\n科幻小说::/sort/7/{{page}}/\n恐怖灵异::/sort/8/{{page}}/\n散文诗词::/sort/9/{{page}}/\n其他类型::/sort/10/{{page}}/",
+  "ruleExplore": {
+    "bookList": "#alistbox",
+    "name": "div.title h2 a@text",
+    "author": "div.title span@text##^作者[:：][\\s]*##",
+    "intro": "div.intro@text",
+    "lastChapter": "div.sys li a@text",
+    "coverUrl": "div.pic img@src",
+    "bookUrl": "div.pic a@href"
+  },
+  "ruleBookInfo": {
+    "name": "h1.f21h@text##作者[:：][\\s\\S]*##",
+    "author": "h1.f21h em a@text",
+    "intro": ".intro@text##^[\\s]*关于[\\s\\S]*?：##",
+    "coverUrl": "div.pic img@src",
+    "lastChapter": "div.txt em a@text",
+    "tocUrl": "span.btopt a@href"
+  },
+  "ruleToc": {
+    "chapterList": "#list dd a[209:]",
+    "chapterName": "@text",
+    "chapterUrl": "@href"
+  },
+  "ruleContent": {
+    "content": "@CSS:#content@html##<div class=\"bottem\"[\\s\\S]*##"
+  },
+  "bookSourceComment": "手写源"
+}
